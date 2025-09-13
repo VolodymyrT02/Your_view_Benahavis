@@ -91,6 +91,12 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom variables for real estate landing */
+    --luxury-gold: 43 96% 56%;
+    --luxury-navy: 210 50% 15%;
+    --shadow-strong: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    --gradient-luxury: linear-gradient(135deg, hsl(var(--luxury-gold)), hsl(var(--luxury-navy)));
   }
 }
 
@@ -101,5 +107,40 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Real Estate Landing Styles */
+  .hero-title {
+    @apply text-4xl md:text-6xl font-bold text-foreground mb-6;
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.1;
+  }
+
+  .hero-text {
+    @apply text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed max-w-4xl mx-auto;
+  }
+
+  .parameters {
+    @apply text-sm md:text-base text-primary font-medium uppercase tracking-wide;
+  }
+
+  .section-text {
+    @apply text-lg md:text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto text-center;
+  }
+
+  .gallery-image {
+    @apply rounded-xl cursor-pointer transition-all duration-300 hover:shadow-[var(--shadow-strong)] hover:scale-[1.02];
+  }
+
+  .fullscreen-overlay {
+    @apply fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+  }
+
+  .btn-whatsapp {
+    @apply px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-all duration-200 hover:shadow-lg;
+  }
+
+  .btn-telegram {
+    @apply px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-200 hover:shadow-lg;
   }
 }
