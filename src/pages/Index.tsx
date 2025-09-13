@@ -28,7 +28,7 @@ const content = {
   en: {
     hero: {
       title: "Your View, Your Home",
-      text: "A light-filled home with panoramic views of the sea and mountains — designed for peaceful family living away from the rush. Breakfasts on the terrace, open living areas for time together, and private rooms for rest. Comfort and calm just a short drive from the coast.",
+      text: "A light-filled townhouse with panoramic views of the sea and mountains — designed for peaceful family living away from the rush. Breakfasts on the terrace, open living areas for time together, and private rooms for rest. Comfort and calm just a short drive from the coast.",
       parameters: "315 m² built • 95 m² terrace • 57 m² plot • 3 bedrooms • 2 bathrooms"
     },
     gallery: {
@@ -49,7 +49,7 @@ const content = {
   es: {
     hero: {
       title: "Your View, Your Home",
-      text: "Un hogar luminoso con vistas panorámicas al mar y a las montañas — pensado para una vida familiar tranquila, lejos del ajetreo. Desayunos en la terraza, zonas abiertas para compartir momentos y espacios privados para el descanso. Confort y serenidad a pocos minutos de la costa.",
+      text: "Un adosado luminoso con vistas panorámicas al mar y a las montañas — pensado para una vida familiar tranquila, lejos del ajetreo. Desayunos en la terraza, zonas abiertas para compartir momentos y espacios privados para el descanso. Confort y serenidad a pocos minutos de la costa.",
       parameters: "315 m² construidos • 95 m² de terraza • 57 m² de parcela • 3 dormitorios • 2 baños"
     },
     gallery: {
@@ -70,7 +70,7 @@ const content = {
   ru: {
     hero: {
       title: "Your View, Your Home",
-      text: "Светлый дом с панорамными видами на море и горы — пространство для спокойной семейной жизни без спешки. Террасы для завтраков на свежем воздухе, открытые зоны для совместного времени и уединённые комнаты для отдыха. Комфорт и тишина всего в короткой поездке от побережья.",
+      text: "Светлый таунхаус с панорамными видами на море и горы — пространство для спокойной семейной жизни без спешки. Террасы для завтраков на свежем воздухе, открытые зоны для совместного времени и уединённые комнаты для отдыха. Комфорт и тишина всего в короткой поездке от побережья.",
       parameters: "315 м² общая площадь • 95 м² терраса • 57 м² участок • 3 спальни • 2 ванные"
     },
     gallery: {
@@ -91,7 +91,7 @@ const content = {
   uk: {
     hero: {
       title: "Your View, Your Home",
-      text: "Світлий дім із панорамними краєвидами на море та гори — простір для спокійного сімейного життя без поспіху. Тераси для сніданків на свіжому повітрі, відкриті зони для часу разом і затишні кімнати для відпочинку. Комфорт і тиша лише за кілька хвилин від узбережжя.",
+      text: "Світлий таунхаус із панорамними краєвидами на море та гори — простір для спокійного сімейного життя без поспіху. Тераси для сніданків на свіжому повітрі, відкриті зони для часу разом і затишні кімнати для відпочинку. Комфорт і тиша лише за кілька хвилин від узбережжя.",
       parameters: "315 м² забудови • 95 м² тераса • 57 м² ділянка • 3 спальні • 2 ванні кімнати"
     },
     gallery: {
@@ -194,7 +194,7 @@ const Index = () => {
       // Update WhatsApp link with prefilled message
       const waBtn = document.getElementById('btn-wa') as HTMLAnchorElement;
       if (waBtn) {
-        const waUrl = new URL('https://wa.me/1234567890'); // TODO: Replace with actual number
+        const waUrl = new URL('https://wa.me/34641848741');
         waUrl.searchParams.set('text', text);
         waBtn.href = waUrl.toString();
       }
@@ -367,7 +367,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <Card className="overflow-hidden shadow-[var(--shadow-strong)] rounded-2xl">
             <iframe
-              src="https://maps.app.goo.gl/oEDasyBq29438Mum6"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3186.1!2d-5.034492!3d36.491103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDI5JzI4LjAiTiA1wrAwMicwNC4yIlc!5e1!3m2!1sen!2ses!4v1609459200000!5m2!1sen!2ses&maptype=satellite&markers=36.491103,-5.034492&zoom=16"
               width="100%"
               height="400"
               style={{ border: 0 }}
@@ -391,7 +391,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               id="btn-wa"
-              href="https://wa.me/1234567890"
+              href="https://wa.me/34641848741"
               className="btn-whatsapp flex items-center gap-2 min-w-[200px] justify-center"
             >
               <MessageCircle size={20} />
