@@ -352,9 +352,24 @@ const Index = () => {
             <X size={32} />
           </button>
           
-          <div className="max-w-4xl w-full text-center text-white">
-            <p className="mb-4">Video player would be implemented here</p>
-            <p className="text-sm opacity-75">/video-block/ folder content</p>
+          <div className="max-w-4xl w-full">
+            <video 
+              controls 
+              autoPlay 
+              className="w-full h-auto rounded-lg"
+              onError={() => {
+                console.log("Video file not found - showing placeholder");
+              }}
+            >
+              <source src="/src/assets/property-tour.mp4" type="video/mp4" />
+              <source src="/property-tour.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="text-center text-white mt-4 p-4 bg-black/30 rounded-lg">
+              <p className="text-sm opacity-75">
+                Замените файл property-tour.mp4 в папке src/assets на ваше видео
+              </p>
+            </div>
           </div>
         </div>
       )}
