@@ -8,17 +8,17 @@ import { X, ChevronLeft, ChevronRight, Play, MessageCircle, Send, ChevronDown, G
 import heroImage from '@/assets/hero-image.jpg';
 
 // Import gallery images
-import interiorLiving from '@/assets/interior-living.jpg';
-import terraceDining from '@/assets/terrace-dining.jpg';
-import kitchenModern from '@/assets/kitchen-modern.jpg';
-import bedroomMaster from '@/assets/bedroom-master.jpg';
-import bathroomLuxury from '@/assets/bathroom-luxury.jpg';
+import livingSpace from '@/assets/IMG_1404.jpg';
+import terraceView from '@/assets/IMG_1459.jpg';
+import kitchenModern from '@/assets/IMG_1461.jpg';
+import bedroomMaster from '@/assets/IMG_1464.jpg';
+import bathroomLuxury from '@/assets/IMG_1469.jpg';
 import propertyTourVideo from '@/assets/property-tour.mp4';
 
 // Gallery images array
 const galleryImages = [
-  interiorLiving,
-  terraceDining,
+  livingSpace,
+  terraceView,
   kitchenModern,
   bedroomMaster,
   bathroomLuxury
@@ -264,7 +264,7 @@ const Index = () => {
       // Update WhatsApp link with prefilled message
       const waBtn = document.getElementById('btn-wa') as HTMLAnchorElement;
       if (waBtn) {
-        const waUrl = new URL('https://wa.me/34641848741');
+        const waUrl = new URL('https://wa.me/34624430070');
         waUrl.searchParams.set('text', text);
         waBtn.href = waUrl.toString();
       }
@@ -608,7 +608,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               id="btn-wa"
-              href="https://wa.me/34641848741"
+              href="https://wa.me/34624430070"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp flex items-center gap-2 min-w-[200px] justify-center"
