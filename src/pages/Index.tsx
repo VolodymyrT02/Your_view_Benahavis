@@ -202,7 +202,7 @@ const Index = () => {
       // Update Telegram link with start parameter
       const tgBtn = document.getElementById('btn-tg') as HTMLAnchorElement;
       if (tgBtn) {
-        const tgUrl = new URL('https://t.me/YourBot'); // TODO: Replace with actual bot
+        const tgUrl = new URL('https://t.me/realestate_MarbellaSpain');
         tgUrl.searchParams.set('start', currentLang);
         tgBtn.href = tgUrl.toString();
       }
@@ -429,7 +429,7 @@ const Index = () => {
             
             <a
               id="btn-tg"
-              href="https://t.me/YourBot"
+              href="https://t.me/realestate_MarbellaSpain"
               className="btn-telegram flex items-center gap-2 min-w-[200px] justify-center"
             >
               <Send size={20} />
