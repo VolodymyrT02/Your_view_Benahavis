@@ -29,12 +29,19 @@ if [ ! -d "dist" ]; then
     exit 1
 fi
 
+echo "📤 Переносим результаты сборки в корень репозитория..."
+rm -rf assets
+mkdir -p assets
+cp dist/assets/* assets/
+cp dist/index.html index.html
+chmod 644 index.html
+
 echo "✅ Сборка завершена успешно!"
-echo "📁 Файлы готовы в папке dist/"
+echo "📁 Обновлённые файлы готовы к коммиту"
 echo ""
-echo "🔄 Теперь выполните следующие команды:"
-echo "git add ."
-echo "git commit -m 'Deploy: Update built files and GitHub Actions'"
+echo "🔄 Выполните:"
+echo "git add assets index.html"
+echo "git commit -m 'Deploy: обновление сборки'"
 echo "git push origin main"
 echo ""
 echo "🌐 После push сайт будет доступен по адресу:"

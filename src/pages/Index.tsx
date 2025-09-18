@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
@@ -112,8 +112,10 @@ const content = {
   }
 };
 
+const VIDEO_POSTER_NAME = 'property-tour-poster.jpg';
+
 const Index = () => {
-  const telegramUsername = 'vlad_IDG';
+  const telegramUsername = 'realestate_MarbellaSpain';
 
   // [LANGUAGE DETECTION] State and detection logic
   const [currentLang, setCurrentLang] = useState('en');
@@ -125,10 +127,72 @@ const Index = () => {
   const [videoError, setVideoError] = useState(false);
   const [startX, setStartX] = useState(0);
   const [startY, setStartY] = useState(0);
+  const [videoPreview, setVideoPreview] = useState<string | null>(null);
 
   // [LANGUAGE DETECTION] Default to English
   useEffect(() => {
     setCurrentLang('en');
+  }, []);
+
+  // [VIDEO] Resolve preview image (manual poster or extracted first frame)
+  useEffect(() => {
+    let cancelled = false;
+    const posterPath = `${import.meta.env.BASE_URL}${VIDEO_POSTER_NAME}`;
+
+    const setPoster = (value: string) => {
+      if (!cancelled) {
+        setVideoPreview(value);
+      }
+    };
+
+    const extractFrame = () => {
+      const tempVideo = document.createElement('video');
+      tempVideo.muted = true;
+      tempVideo.playsInline = true;
+      tempVideo.preload = 'auto';
+      tempVideo.crossOrigin = 'anonymous';
+      tempVideo.src = propertyTourVideo;
+
+      const handleLoadedData = () => {
+        const canvas = document.createElement('canvas');
+        const width = tempVideo.videoWidth || 1280;
+        const height = tempVideo.videoHeight || 720;
+        canvas.width = width;
+        canvas.height = height;
+        const context = canvas.getContext('2d');
+
+        if (context) {
+          context.drawImage(tempVideo, 0, 0, width, height);
+          setPoster(canvas.toDataURL('image/jpeg'));
+        }
+
+        tempVideo.removeEventListener('loadeddata', handleLoadedData);
+        tempVideo.src = '';
+      };
+
+      tempVideo.addEventListener('loadeddata', handleLoadedData);
+      tempVideo.load();
+    };
+
+    const checkPoster = async () => {
+      try {
+        const response = await fetch(posterPath, { method: 'HEAD' });
+        if (response.ok) {
+          setPoster(posterPath);
+          return;
+        }
+      } catch (error) {
+        // Ignore errors and fallback to frame extraction
+      }
+
+      extractFrame();
+    };
+
+    checkPoster();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // [GALLERY] Navigation functions
@@ -208,9 +272,8 @@ const Index = () => {
       // Update Telegram link
       const tgBtn = document.getElementById('btn-tg') as HTMLAnchorElement;
       if (tgBtn) {
-        const tgUrl = new URL(`https://t.me/${telegramUsername}`);
-        tgUrl.searchParams.set('text', text);
-        tgBtn.href = tgUrl.toString();
+        const message = encodeURIComponent(text);
+        tgBtn.href = `https://t.me/${telegramUsername}?text=${message}`;
       }
     };
 
@@ -222,7 +285,9 @@ const Index = () => {
       setVideoError(false);
       setVideoReady(false);
       requestAnimationFrame(() => {
-        videoRef.current?.load();
+        if (videoRef.current) {
+          videoRef.current.load();
+        }
       });
     } else if (videoRef.current) {
       const video = videoRef.current;
@@ -230,6 +295,20 @@ const Index = () => {
       video.currentTime = 0;
     }
   }, [videoOpen]);
+
+  useEffect(() => {
+    if (galleryImages.length < 2 || galleryOpen) {
+      return undefined;
+    }
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [galleryOpen]);
+
+  const videoPoster = useMemo(() => videoPreview ?? undefined, [videoPreview]);
 
   const currentContent = content[currentLang as keyof typeof content];
 
@@ -315,17 +394,55 @@ const Index = () => {
       <section className="container mx-auto px-4 py-8">
         <p className="section-text mb-6">{currentContent.gallery.text}</p>
         
-        {/* [GALLERY] First image display */}
+        {/* [GALLERY] Preview slideshow */}
         <div className="max-w-4xl mx-auto">
-          <img
-            src={galleryImages[0]}
-            alt="Interior living space"
-            className="gallery-image w-full h-[300px] md:h-[500px] object-cover"
-            onClick={() => {
-              setCurrentImageIndex(0);
-              setGalleryOpen(true);
-            }}
-          />
+          <div className="relative">
+            <img
+              src={galleryImages[currentImageIndex]}
+              alt="Interior living space"
+              className="gallery-image w-full h-[300px] md:h-[500px] object-cover rounded-xl"
+              onClick={() => setGalleryOpen(true)}
+            />
+
+            <div className="absolute inset-0 hidden md:flex items-center justify-between px-4">
+              <button
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  prevImage();
+                }}
+                aria-label="Предыдущее фото"
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  nextImage();
+                }}
+                aria-label="Следующее фото"
+              >
+                <ChevronRight size={24} />
+              </button>
+            </div>
+
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              {galleryImages.map((_, index) => (
+                <button
+                  key={index}
+                  className={`h-2.5 rounded-full transition-all ${
+                    currentImageIndex === index ? 'bg-white w-6' : 'bg-white/50 w-2.5'
+                  }`}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setCurrentImageIndex(index);
+                  }}
+                  aria-label={`Перейти к фото ${index + 1}`}
+                ></button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -371,13 +488,20 @@ const Index = () => {
         
         {/* [VIDEO] Placeholder thumbnail */}
         <div className="max-w-4xl mx-auto">
-          <div 
-            className="relative gallery-image bg-secondary h-[300px] md:h-[500px] flex items-center justify-center cursor-pointer group"
+          <div
+            className="relative gallery-image h-[300px] md:h-[500px] flex items-center justify-center cursor-pointer group overflow-hidden rounded-xl"
             onClick={() => setVideoOpen(true)}
           >
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300 rounded-xl"></div>
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 group-hover:opacity-90"
+              style={{
+                backgroundImage: videoPoster ? `url(${videoPoster})` : undefined,
+                backgroundColor: videoPoster ? undefined : 'var(--secondary)',
+              }}
+            ></div>
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all duration-300"></div>
             <Play size={80} className="text-white drop-shadow-lg z-10" />
-            <div className="absolute bottom-4 left-4 text-white font-medium">
+            <div className="absolute bottom-4 left-4 text-white font-medium z-10">
               Video Tour: Terrace &amp; Views
             </div>
           </div>
@@ -400,6 +524,7 @@ const Index = () => {
               controls
               preload="auto"
               className="w-full h-auto rounded-lg bg-black"
+              poster={videoPoster}
               onLoadedData={(event) => {
                 setVideoReady(true);
                 setVideoError(false);
@@ -475,7 +600,7 @@ const Index = () => {
       {/* [FINAL SECTION] CTA with messenger buttons */}
       <section className="container mx-auto px-4 py-8 pb-24">
         <div className="text-center max-w-3xl mx-auto">
-          <p className="text-lg md:text-xl leading-relaxed mb-8">
+          <p className="text-xl md:text-2xl leading-relaxed mb-8 font-semibold italic">
             {currentContent.final.text}
           </p>
           
