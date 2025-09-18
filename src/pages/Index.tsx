@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { X, ChevronLeft, ChevronRight, Play, MessageCircle, Send, ChevronDown, Globe } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Play, MessageCircle, Send, ChevronDown, Globe, RefreshCw } from 'lucide-react';
 
 // Import hero image
 import heroImage from '@/assets/hero-image.jpg';
@@ -13,6 +13,7 @@ import terraceDining from '@/assets/terrace-dining.jpg';
 import kitchenModern from '@/assets/kitchen-modern.jpg';
 import bedroomMaster from '@/assets/bedroom-master.jpg';
 import bathroomLuxury from '@/assets/bathroom-luxury.jpg';
+import propertyTourVideo from '@/assets/property-tour.mp4';
 
 // Gallery images array
 const galleryImages = [
@@ -112,11 +113,16 @@ const content = {
 };
 
 const Index = () => {
+  const telegramUsername = 'vlad_IDG';
+
   // [LANGUAGE DETECTION] State and detection logic
   const [currentLang, setCurrentLang] = useState('en');
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [videoOpen, setVideoOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [videoReady, setVideoReady] = useState(false);
+  const [videoError, setVideoError] = useState(false);
   const [startX, setStartX] = useState(0);
   const [startY, setStartY] = useState(0);
 
@@ -199,17 +205,31 @@ const Index = () => {
         waBtn.href = waUrl.toString();
       }
 
-      // Update Telegram link with start parameter
+      // Update Telegram link
       const tgBtn = document.getElementById('btn-tg') as HTMLAnchorElement;
       if (tgBtn) {
-        const tgUrl = new URL('https://t.me/realestate_MarbellaSpain');
-        tgUrl.searchParams.set('start', currentLang);
+        const tgUrl = new URL(`https://t.me/${telegramUsername}`);
+        tgUrl.searchParams.set('text', text);
         tgBtn.href = tgUrl.toString();
       }
     };
 
     setupMessengerLinks();
   }, [currentLang]);
+
+  useEffect(() => {
+    if (videoOpen) {
+      setVideoError(false);
+      setVideoReady(false);
+      requestAnimationFrame(() => {
+        videoRef.current?.load();
+      });
+    } else if (videoRef.current) {
+      const video = videoRef.current;
+      video.pause();
+      video.currentTime = 0;
+    }
+  }, [videoOpen]);
 
   const currentContent = content[currentLang as keyof typeof content];
 
@@ -219,6 +239,28 @@ const Index = () => {
     ru: 'Русский',
     uk: 'Українська'
   };
+
+  const videoStatusMessages = {
+    loading: {
+      en: 'Loading the property tour…',
+      es: 'Cargando el tour de la propiedad…',
+      ru: 'Загружаем видео-тур…',
+      uk: 'Завантажуємо відеотур…',
+    },
+    error: {
+      en: 'We could not load the video. Reload the page or press “Try again”.',
+      es: 'No se pudo cargar el video. Recarga la página o pulsa «Reintentar».',
+      ru: 'Не удалось загрузить видео. Обновите страницу или нажмите «Повторить».',
+      uk: 'Не вдалося завантажити відео. Оновіть сторінку або натисніть «Спробувати ще раз».',
+    },
+  } as const;
+
+  const videoRetryLabels = {
+    en: 'Try again',
+    es: 'Reintentar',
+    ru: 'Повторить',
+    uk: 'Спробувати ще раз',
+  } as const;
 
   return (
     <div className="min-h-screen bg-background">
@@ -351,39 +393,60 @@ const Index = () => {
           >
             <X size={32} />
           </button>
-          
-          <div className="max-w-4xl w-full">
-            <div className="w-full bg-black/50 rounded-lg p-8 text-center text-white">
-              <Play size={64} className="mx-auto mb-4 opacity-50" />
-              <p className="text-lg mb-2">Property Tour Video</p>
-              <p className="text-sm opacity-75 mb-4">
-                Поместите файл property-tour.mp4 в папку public для отображения видео
-              </p>
-              <Button 
-                variant="outline" 
-                className="text-white border-white hover:bg-white hover:text-black"
-                onClick={() => {
-                  // Попытка загрузить видео, если оно есть
-                  const video = document.querySelector('video');
-                  if (video) {
-                    video.play();
-                  }
-                }}
-              >
-                <Play size={16} className="mr-2" />
-                Воспроизвести
-              </Button>
-            </div>
-            <video 
-              controls 
-              className="w-full h-auto rounded-lg hidden"
-              onLoadedData={(e) => {
-                e.currentTarget.parentElement?.classList.remove('hidden');
-                e.currentTarget.previousElementSibling?.classList.add('hidden');
+
+          <div className="relative max-w-4xl w-full">
+            <video
+              ref={videoRef}
+              controls
+              preload="auto"
+              className="w-full h-auto rounded-lg bg-black"
+              onLoadedData={(event) => {
+                setVideoReady(true);
+                setVideoError(false);
+
+                const videoElement = event.currentTarget;
+                videoElement.play().catch(() => {
+                  /* Пользователь может запустить вручную */
+                });
+              }}
+              onError={() => {
+                setVideoError(true);
+                setVideoReady(false);
               }}
             >
-              <source src="/property-tour.mp4" type="video/mp4" />
+              <source src={propertyTourVideo} type="video/mp4" />
             </video>
+
+            {!videoReady && !videoError && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-lg bg-black/70 text-white text-center p-8">
+                <Play size={48} className="opacity-70" />
+                <p className="text-base md:text-lg">
+                  {videoStatusMessages.loading[currentLang as keyof typeof videoStatusMessages.loading]}
+                </p>
+              </div>
+            )}
+
+            {videoError && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-lg bg-black/80 text-white text-center p-8">
+                <RefreshCw size={40} className="opacity-80" />
+                <p className="text-base md:text-lg">
+                  {videoStatusMessages.error[currentLang as keyof typeof videoStatusMessages.error]}
+                </p>
+                <Button
+                  variant="outline"
+                  className="text-white border-white hover:bg-white hover:text-black"
+                  onClick={() => {
+                    setVideoError(false);
+                    setVideoReady(false);
+                    requestAnimationFrame(() => {
+                      videoRef.current?.load();
+                    });
+                  }}
+                >
+                  {videoRetryLabels[currentLang as keyof typeof videoRetryLabels]}
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -421,6 +484,8 @@ const Index = () => {
             <a
               id="btn-wa"
               href="https://wa.me/34641848741"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-whatsapp flex items-center gap-2 min-w-[200px] justify-center"
             >
               <MessageCircle size={20} />
@@ -429,7 +494,9 @@ const Index = () => {
             
             <a
               id="btn-tg"
-              href="https://t.me/realestate_MarbellaSpain"
+              href="https://t.me/vlad_IDG"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-telegram flex items-center gap-2 min-w-[200px] justify-center"
             >
               <Send size={20} />
