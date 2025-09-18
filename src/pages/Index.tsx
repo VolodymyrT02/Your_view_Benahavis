@@ -353,23 +353,37 @@ const Index = () => {
           </button>
           
           <div className="max-w-4xl w-full">
+            <div className="w-full bg-black/50 rounded-lg p-8 text-center text-white">
+              <Play size={64} className="mx-auto mb-4 opacity-50" />
+              <p className="text-lg mb-2">Property Tour Video</p>
+              <p className="text-sm opacity-75 mb-4">
+                Поместите файл property-tour.mp4 в папку public для отображения видео
+              </p>
+              <Button 
+                variant="outline" 
+                className="text-white border-white hover:bg-white hover:text-black"
+                onClick={() => {
+                  // Попытка загрузить видео, если оно есть
+                  const video = document.querySelector('video');
+                  if (video) {
+                    video.play();
+                  }
+                }}
+              >
+                <Play size={16} className="mr-2" />
+                Воспроизвести
+              </Button>
+            </div>
             <video 
               controls 
-              autoPlay 
-              className="w-full h-auto rounded-lg"
-              onError={() => {
-                console.log("Video file not found - showing placeholder");
+              className="w-full h-auto rounded-lg hidden"
+              onLoadedData={(e) => {
+                e.currentTarget.parentElement?.classList.remove('hidden');
+                e.currentTarget.previousElementSibling?.classList.add('hidden');
               }}
             >
-              <source src="/src/assets/property-tour.mp4" type="video/mp4" />
               <source src="/property-tour.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
             </video>
-            <div className="text-center text-white mt-4 p-4 bg-black/30 rounded-lg">
-              <p className="text-sm opacity-75">
-                Замените файл property-tour.mp4 в папке src/assets на ваше видео
-              </p>
-            </div>
           </div>
         </div>
       )}
