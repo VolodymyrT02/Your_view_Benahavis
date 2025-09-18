@@ -5,24 +5,17 @@
 
 ## ✅ Решение
 
-### Автоматический деплой (рекомендуется):
+### ✅ ГОТОВО! Настройте GitHub Pages:
 
-1. **Настройте GitHub Pages:**
-   - Перейдите в репозиторий: https://github.com/VolodymyrT02/Your_view_Benahavis
-   - Settings → Pages
-   - Source: измените с "Deploy from a branch" на **"GitHub Actions"**
+1. **Настройте GitHub Pages для использования папки dist:**
+   - Перейдите в репозиторий: https://github.com/VolodymyrT02/Your_view_Benahavis/settings/pages
+   - Source: **"Deploy from a branch"**
+   - Branch: **"main"**
+   - Folder: **"/ (root)"** (поскольку файлы теперь в корне)
 
-2. **Закоммитьте файлы:**
-   ```bash
-   git add .
-   git commit -m "Add GitHub Actions workflow for deployment"
-   git push origin main
-   ```
-
-3. **Проверьте деплой:**
-   - Перейдите во вкладку "Actions" в GitHub
-   - Дождитесь завершения деплоя (зеленая галочка)
+2. **Проверьте результат:**
    - Сайт будет доступен: https://volodymyrt02.github.io/Your_view_Benahavis/
+   - Подождите 2-3 минуты для обновления
 
 ### Ручной деплой:
 
