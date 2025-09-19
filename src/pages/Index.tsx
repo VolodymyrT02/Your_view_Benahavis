@@ -395,18 +395,18 @@ const Index = () => {
         <p className="section-text mb-6">{currentContent.gallery.text}</p>
         
         {/* [GALLERY] Preview slideshow */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="relative">
             <img
               src={galleryImages[currentImageIndex]}
               alt="Interior living space"
-              className="gallery-image w-full h-[300px] md:h-[500px] object-cover rounded-xl"
+              className="gallery-image w-full h-[300px] sm:h-[360px] md:h-[550px] lg:h-[600px] object-cover rounded-xl"
               onClick={() => setGalleryOpen(true)}
             />
 
-            <div className="absolute inset-0 hidden md:flex items-center justify-between px-4">
+            <div className="pointer-events-none absolute inset-0 hidden md:flex items-center justify-between px-4">
               <button
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
+                className="pointer-events-auto w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
                 onClick={(event) => {
                   event.stopPropagation();
                   prevImage();
@@ -416,7 +416,7 @@ const Index = () => {
                 <ChevronLeft size={24} />
               </button>
               <button
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
+                className="pointer-events-auto w-10 h-10 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
                 onClick={(event) => {
                   event.stopPropagation();
                   nextImage();
@@ -427,11 +427,12 @@ const Index = () => {
               </button>
             </div>
 
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
               {galleryImages.map((_, index) => (
                 <button
                   key={index}
-                  className={`h-2.5 rounded-full transition-all ${
+                  type="button"
+                  className={`pointer-events-auto h-2.5 rounded-full transition-all ${
                     currentImageIndex === index ? 'bg-white w-6' : 'bg-white/50 w-2.5'
                   }`}
                   onClick={(event) => {
@@ -487,9 +488,9 @@ const Index = () => {
         <p className="section-text mb-6">{currentContent.video.text}</p>
         
         {/* [VIDEO] Placeholder thumbnail */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div
-            className="relative gallery-image h-[300px] md:h-[500px] flex items-center justify-center cursor-pointer group overflow-hidden rounded-xl"
+            className="relative gallery-image h-[300px] sm:h-[360px] md:h-[550px] lg:h-[600px] flex items-center justify-center cursor-pointer group overflow-hidden rounded-xl"
             onClick={() => setVideoOpen(true)}
           >
             <div

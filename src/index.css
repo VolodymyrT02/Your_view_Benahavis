@@ -121,7 +121,7 @@ All colors MUST be HSL.
   }
 
   .parameters {
-    @apply text-sm md:text-base text-primary font-medium uppercase tracking-wide;
+    @apply text-base md:text-lg font-semibold uppercase tracking-wide text-black;
   }
 
   .section-text {
