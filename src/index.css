@@ -53,6 +53,8 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --shadow-strong: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
 
   .dark {
@@ -95,7 +97,6 @@ All colors MUST be HSL.
     /* Custom variables for real estate landing */
     --luxury-gold: 43 96% 56%;
     --luxury-navy: 210 50% 15%;
-    --shadow-strong: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
     --gradient-luxury: linear-gradient(135deg, hsl(var(--luxury-gold)), hsl(var(--luxury-navy)));
   }
 }
