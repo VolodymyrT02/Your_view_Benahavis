@@ -251,33 +251,64 @@ const Index = () => {
 
   // [FINAL BUTTONS] Setup messenger links with language detection
   useEffect(() => {
-    const setupMessengerLinks = () => {
-      const msgTexts = {
-        en: "I'm interested in the townhouse in Benahavís — Your View, Your Home. Please send detailed information.",
-        es: "Me interesa el adosado en Benahavís — Your View, Your Home. Envíenme información detallada.",
-        ru: "Меня заинтересовал таунхаус в Бенахависе — Your View, Your Home. Пришлите детальную информацию.",
-        uk: "Мене зацікавив таунхаус у Бенахавісі — Your View, Your Home. Надішліть детальну інформацію."
-      };
-
-      const text = msgTexts[currentLang as keyof typeof msgTexts] || msgTexts.en;
-
-      // Update WhatsApp link with prefilled message
-      const waBtn = document.getElementById('btn-wa') as HTMLAnchorElement;
-      if (waBtn) {
-        const waUrl = new URL('https://wa.me/34624430070');
-        waUrl.searchParams.set('text', text);
-        waBtn.href = waUrl.toString();
-      }
-
-      // Update Telegram link
-      const tgBtn = document.getElementById('btn-tg') as HTMLAnchorElement;
-      if (tgBtn) {
-        const message = encodeURIComponent(text);
-        tgBtn.href = `https://t.me/${telegramUsername}?text=${message}`;
-      }
+    const msgTexts = {
+      en: "I'm interested in the townhouse in Benahavís — Your View, Your Home. Please send detailed information.",
+      es: "Me interesa el adosado en Benahavís — Your View, Your Home. Envíenme información detallada.",
+      ru: "Меня заинтересовал таунхаус в Бенахависе — Your View, Your Home. Пришлите детальную информацию.",
+      uk: "Мене зацікавив таунхаус у Бенахавісі — Your View, Your Home. Надішліть детальну інформацію."
     };
 
-    setupMessengerLinks();
+    const text = msgTexts[currentLang as keyof typeof msgTexts] || msgTexts.en;
+
+    // Update WhatsApp link with prefilled message
+    const waBtn = document.getElementById('btn-wa') as HTMLAnchorElement;
+    if (waBtn) {
+      const waUrl = new URL('https://wa.me/34624430070');
+      waUrl.searchParams.set('text', text);
+      waBtn.href = waUrl.toString();
+    }
+
+    // Update Telegram link with deep-link attempt and web fallback
+    const tgBtn = document.getElementById('btn-tg') as HTMLAnchorElement;
+    let cleanup: (() => void) | undefined;
+
+    if (tgBtn) {
+      const encoded = encodeURIComponent(text);
+      const fallbackUrl = `https://t.me/share/url?url=https://t.me/${telegramUsername}&text=${encoded}`;
+      const deepLink = `tg://resolve?domain=${telegramUsername}&text=${encoded}`;
+
+      tgBtn.href = fallbackUrl;
+
+      const handleTelegramClick = (event: MouseEvent) => {
+        event.preventDefault();
+
+        const openWindow = (url: string) => window.open(url, '_blank', 'noopener,noreferrer');
+        const deepWindow = openWindow(deepLink);
+
+        if (!deepWindow) {
+          openWindow(fallbackUrl);
+          return;
+        }
+
+        const fallbackTimer = window.setTimeout(() => {
+          openWindow(fallbackUrl);
+        }, 1500);
+
+        const clearTimer = () => {
+          window.clearTimeout(fallbackTimer);
+        };
+
+        window.addEventListener('focus', clearTimer, { once: true });
+        window.addEventListener('pagehide', clearTimer, { once: true });
+      };
+
+      tgBtn.addEventListener('click', handleTelegramClick);
+      cleanup = () => tgBtn.removeEventListener('click', handleTelegramClick);
+    }
+
+    return () => {
+      cleanup?.();
+    };
   }, [currentLang]);
 
   useEffect(() => {
@@ -400,7 +431,7 @@ const Index = () => {
             <img
               src={galleryImages[currentImageIndex]}
               alt="Interior living space"
-              className="gallery-image w-full h-[300px] sm:h-[396px] md:h-[605px] lg:h-[660px] object-cover rounded-xl"
+              className="gallery-image w-full h-[300px] sm:h-[396px] md:h-[665px] lg:h-[726px] object-cover rounded-xl"
               onClick={() => setGalleryOpen(true)}
             />
 
@@ -490,7 +521,7 @@ const Index = () => {
         {/* [VIDEO] Placeholder thumbnail */}
         <div className="max-w-6xl mx-auto">
           <div
-            className="relative gallery-image h-[300px] sm:h-[396px] md:h-[605px] lg:h-[660px] flex items-center justify-center cursor-pointer group overflow-hidden rounded-xl"
+            className="relative gallery-image h-[300px] sm:h-[396px] md:h-[665px] lg:h-[726px] flex items-center justify-center cursor-pointer group overflow-hidden rounded-xl"
             onClick={() => setVideoOpen(true)}
           >
             <div
