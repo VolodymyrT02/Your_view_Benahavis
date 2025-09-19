@@ -282,20 +282,33 @@ const Index = () => {
       const handleTelegramClick = (event: MouseEvent) => {
         event.preventDefault();
 
-        const openWindow = (url: string) => window.open(url, '_blank', 'noopener,noreferrer');
-        const deepWindow = openWindow(deepLink);
+        const isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent);
+        let fallbackTimer: number | undefined;
 
-        if (!deepWindow) {
-          openWindow(fallbackUrl);
-          return;
+        if (isMobile) {
+          window.location.href = deepLink;
+          fallbackTimer = window.setTimeout(() => {
+            window.location.href = fallbackUrl;
+          }, 1500);
+        } else {
+          const openWindow = (url: string) => window.open(url, '_blank', 'noopener,noreferrer');
+          const deepWindow = openWindow(deepLink);
+
+          if (!deepWindow) {
+            openWindow(fallbackUrl);
+            return;
+          }
+
+          fallbackTimer = window.setTimeout(() => {
+            openWindow(fallbackUrl);
+          }, 1500);
         }
 
-        const fallbackTimer = window.setTimeout(() => {
-          openWindow(fallbackUrl);
-        }, 1500);
-
         const clearTimer = () => {
-          window.clearTimeout(fallbackTimer);
+          if (fallbackTimer) {
+            window.clearTimeout(fallbackTimer);
+            fallbackTimer = undefined;
+          }
         };
 
         window.addEventListener('focus', clearTimer, { once: true });
@@ -410,12 +423,12 @@ const Index = () => {
         </div>
 
         {/* [HERO] Main image */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <Card className="overflow-hidden shadow-[var(--shadow-strong)] rounded-2xl">
             <img
               src={heroImage}
               alt="Luxury townhouse in Benahavís with panoramic views"
-              className="w-full h-[400px] md:h-[600px] object-cover"
+              className="w-full h-[320px] sm:h-[380px] md:h-[520px] lg:h-[560px] object-cover"
             />
           </Card>
         </div>
@@ -426,12 +439,12 @@ const Index = () => {
         <p className="section-text mb-6">{currentContent.gallery.text}</p>
         
         {/* [GALLERY] Preview slideshow */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="relative">
             <img
               src={galleryImages[currentImageIndex]}
               alt="Interior living space"
-              className="gallery-image w-full h-[300px] sm:h-[396px] md:h-[665px] lg:h-[726px] object-cover rounded-xl"
+              className="gallery-image w-full h-[260px] sm:h-[320px] md:h-[480px] lg:h-[520px] object-cover rounded-xl"
               onClick={() => setGalleryOpen(true)}
             />
 
@@ -519,9 +532,9 @@ const Index = () => {
         <p className="section-text mb-6">{currentContent.video.text}</p>
         
         {/* [VIDEO] Placeholder thumbnail */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div
-            className="relative gallery-image h-[300px] sm:h-[396px] md:h-[665px] lg:h-[726px] flex items-center justify-center cursor-pointer group overflow-hidden rounded-xl"
+            className="relative gallery-image h-[260px] sm:h-[320px] md:h-[480px] lg:h-[520px] flex items-center justify-center cursor-pointer group overflow-hidden rounded-xl"
             onClick={() => setVideoOpen(true)}
           >
             <div
@@ -613,12 +626,12 @@ const Index = () => {
         <p className="section-text mb-6">{currentContent.location.text}</p>
         
         {/* [LOCATION] Google Maps iframe */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <Card className="overflow-hidden shadow-[var(--shadow-strong)] rounded-2xl">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3186.1!2d-5.034492!3d36.491103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDI5JzI4LjAiTiA1wrAwMicwNC4yIlc!5e1!3m2!1sen!2ses!4v1609459200000!5m2!1sen!2ses&maptype=satellite&markers=36.491103,-5.034492&zoom=16"
               width="100%"
-              height="400"
+              height="360"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
