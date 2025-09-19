@@ -400,7 +400,7 @@ const Index = () => {
             <img
               src={galleryImages[currentImageIndex]}
               alt="Interior living space"
-              className="gallery-image w-full h-[300px] sm:h-[360px] md:h-[550px] lg:h-[600px] object-cover rounded-xl"
+              className="gallery-image w-full h-[300px] sm:h-[396px] md:h-[605px] lg:h-[660px] object-cover rounded-xl"
               onClick={() => setGalleryOpen(true)}
             />
 
@@ -490,7 +490,7 @@ const Index = () => {
         {/* [VIDEO] Placeholder thumbnail */}
         <div className="max-w-6xl mx-auto">
           <div
-            className="relative gallery-image h-[300px] sm:h-[360px] md:h-[550px] lg:h-[600px] flex items-center justify-center cursor-pointer group overflow-hidden rounded-xl"
+            className="relative gallery-image h-[300px] sm:h-[396px] md:h-[605px] lg:h-[660px] flex items-center justify-center cursor-pointer group overflow-hidden rounded-xl"
             onClick={() => setVideoOpen(true)}
           >
             <div
