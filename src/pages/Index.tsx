@@ -34,8 +34,6 @@ const GALLERY_IMAGES = [
 const TELEGRAM_USERNAME = "realestate_MarbellaSpain";
 const WHATSAPP_NUMBER = "34624430070";
 const VIDEO_POSTER_NAME = "property-tour-poster.jpg";
-const SITE_URL = "https://volodymyrt02.github.io/Your_view_Benahavis/";
-
 type LanguageKey = "en" | "es" | "ru" | "uk";
 
 type LandingCopy = {
@@ -188,13 +186,13 @@ const videoRetryLabels = {
 } as const;
 
 const detectInitialLanguage = (): LanguageKey => {
-  if (typeof navigator === "undefined") {
+  if (typeof window === "undefined") {
     return "en";
   }
 
-  const browserLang = navigator.language.slice(0, 2).toLowerCase();
-  if (browserLang === "es" || browserLang === "ru" || browserLang === "uk") {
-    return browserLang;
+  const stored = window.localStorage.getItem("preferredLang");
+  if (stored === "en" || stored === "es" || stored === "ru" || stored === "uk") {
+    return stored;
   }
 
   return "en";
@@ -214,6 +212,12 @@ const Index: React.FC = () => {
 
   const currentContent = content[currentLang];
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("preferredLang", currentLang);
+    }
+  }, [currentLang]);
+
   const messageText = useMemo(() => messageTemplates[currentLang] ?? messageTemplates.en, [currentLang]);
   const encodedMessage = useMemo(() => encodeURIComponent(messageText), [messageText]);
 
@@ -228,43 +232,42 @@ const Index: React.FC = () => {
     [encodedMessage],
   );
 
-  const telegramWebFallback = useMemo(() => {
-    const fallbackUrl = new URL("https://t.me/share/url");
-    fallbackUrl.searchParams.set("url", SITE_URL);
-    fallbackUrl.searchParams.set("text", messageText);
-    return fallbackUrl.toString();
-  }, [messageText]);
+  const telegramWebUrl = useMemo(
+    () => `https://t.me/${TELEGRAM_USERNAME}?text=${encodedMessage}`,
+    [encodedMessage],
+  );
 
   const handleTelegramClick = useCallback(
     (event: React.MouseEvent<HTMLAnchorElement>) => {
-      event.preventDefault();
-
       const isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent);
-
-      if (isMobile) {
-        window.location.href = telegramDeepLink;
-        const timer = window.setTimeout(() => {
-          window.location.href = telegramWebFallback;
-        }, 1400);
-
-        const cancelFallback = () => window.clearTimeout(timer);
-        window.addEventListener("focus", cancelFallback, { once: true });
-        window.addEventListener("pagehide", cancelFallback, { once: true });
+      if (!isMobile) {
         return;
       }
 
-      const deepLinkWindow = window.open(telegramDeepLink, "_blank", "noopener,noreferrer");
-      const timer = window.setTimeout(() => {
-        if (!deepLinkWindow || deepLinkWindow.closed) {
-          window.open(telegramWebFallback, "_blank", "noopener,noreferrer");
-        }
-      }, 1200);
+      event.preventDefault();
 
-      const cancelFallback = () => window.clearTimeout(timer);
-      window.addEventListener("focus", cancelFallback, { once: true });
-      window.addEventListener("pagehide", cancelFallback, { once: true });
+      const fallbackWindow = window.open(telegramWebUrl, "_blank", "noopener,noreferrer");
+      if (!fallbackWindow) {
+        window.location.href = telegramWebUrl;
+      }
+
+      const timer = window.setTimeout(() => {
+        window.location.href = telegramDeepLink;
+      }, 400);
+
+      const cancel = () => window.clearTimeout(timer);
+      window.addEventListener("pagehide", cancel, { once: true });
+      window.addEventListener(
+        "visibilitychange",
+        () => {
+          if (document.visibilityState === "hidden") {
+            cancel();
+          }
+        },
+        { once: true },
+      );
     },
-    [telegramDeepLink, telegramWebFallback],
+    [telegramDeepLink, telegramWebUrl],
   );
 
   const goToNextImage = useCallback(() => {
@@ -677,7 +680,9 @@ const Index: React.FC = () => {
             </a>
 
             <a
-              href={telegramDeepLink}
+              href={telegramWebUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={handleTelegramClick}
               className="btn-telegram flex items-center gap-2 min-w-[200px] justify-center"
             >
