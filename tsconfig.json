@@ -4,7 +4,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@media/*": ["./assets-source/*"]
     },
     "noImplicitAny": false,
     "noUnusedParameters": false,

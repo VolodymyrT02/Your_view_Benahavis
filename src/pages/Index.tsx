@@ -9,31 +9,99 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { X, ChevronLeft, ChevronRight, Play, MessageCircle, ChevronDown, Globe, RefreshCw } from "lucide-react";
 
-import heroImage from "@/assets/hero-image.jpg";
-import livingSpace from "@/assets/IMG_1404.jpg";
-import terraceView from "@/assets/IMG_1459.jpg";
-import kitchenModern from "@/assets/IMG_1461.jpg";
-import loungeView from "@/assets/IMG_1462.jpg";
-import readingCorner from "@/assets/IMG_1464.jpg";
-import guestRoom from "@/assets/IMG_1465.jpg";
-import masterSuite from "@/assets/IMG_1468.jpg";
-import bathroomLuxury from "@/assets/IMG_1469.jpg";
-import propertyTourVideo from "@/assets/property-tour.mp4";
+import heroPictureData from "@media/photos/hero-image.jpg?imagetools&w=2400;1800;1400;1000;720&format=webp;jpg&quality=82&as=picture";
+import heroPlaceholder from "@media/photos/hero-image.jpg?imagetools&w=40&format=webp&quality=30&blur=15&as=src";
 
-const GALLERY_IMAGES = [
-  { src: livingSpace, alt: "Open living space connected to the terrace" },
-  { src: terraceView, alt: "Terrace with panoramic valley view" },
-  { src: kitchenModern, alt: "Modern kitchen and dining area" },
-  { src: loungeView, alt: "Second level lounge with natural light" },
-  { src: readingCorner, alt: "Cozy reading corner next to the window" },
-  { src: guestRoom, alt: "Guest bedroom with terrace access" },
-  { src: masterSuite, alt: "Master suite with mountain view" },
-  { src: bathroomLuxury, alt: "Main bathroom with walk-in shower" },
-] as const;
+import livingSpacePictureData from "@media/photos/IMG_1404.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import livingSpacePlaceholder from "@media/photos/IMG_1404.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
+import terraceViewPictureData from "@media/photos/IMG_1459.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import terraceViewPlaceholder from "@media/photos/IMG_1459.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
+import kitchenModernPictureData from "@media/photos/IMG_1461.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import kitchenModernPlaceholder from "@media/photos/IMG_1461.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
+import loungeViewPictureData from "@media/photos/IMG_1462.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import loungeViewPlaceholder from "@media/photos/IMG_1462.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
+import readingCornerPictureData from "@media/photos/IMG_1464.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import readingCornerPlaceholder from "@media/photos/IMG_1464.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
+import guestRoomPictureData from "@media/photos/IMG_1465.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import guestRoomPlaceholder from "@media/photos/IMG_1465.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
+import masterSuitePictureData from "@media/photos/IMG_1468.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import masterSuitePlaceholder from "@media/photos/IMG_1468.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
+import bathroomLuxuryPictureData from "@media/photos/IMG_1469.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import bathroomLuxuryPlaceholder from "@media/photos/IMG_1469.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
+
+type PictureSource = {
+  type: string;
+  srcset: string;
+};
+
+type PictureData = {
+  sources: PictureSource[];
+  img: {
+    src: string;
+    width: number;
+    height: number;
+  };
+};
+
+type GalleryImageAsset = {
+  alt: string;
+  picture: PictureData;
+  placeholder: string;
+};
+
+const toPicture = (value: unknown) => value as PictureData;
+
+const heroPicture = toPicture(heroPictureData);
+
+const galleryImages: GalleryImageAsset[] = [
+  {
+    alt: "Open living space connected to the terrace",
+    picture: toPicture(livingSpacePictureData),
+    placeholder: livingSpacePlaceholder,
+  },
+  {
+    alt: "Terrace with panoramic valley view",
+    picture: toPicture(terraceViewPictureData),
+    placeholder: terraceViewPlaceholder,
+  },
+  {
+    alt: "Modern kitchen and dining area",
+    picture: toPicture(kitchenModernPictureData),
+    placeholder: kitchenModernPlaceholder,
+  },
+  {
+    alt: "Second level lounge with natural light",
+    picture: toPicture(loungeViewPictureData),
+    placeholder: loungeViewPlaceholder,
+  },
+  {
+    alt: "Cozy reading corner next to the window",
+    picture: toPicture(readingCornerPictureData),
+    placeholder: readingCornerPlaceholder,
+  },
+  {
+    alt: "Guest bedroom with terrace access",
+    picture: toPicture(guestRoomPictureData),
+    placeholder: guestRoomPlaceholder,
+  },
+  {
+    alt: "Master suite with mountain view",
+    picture: toPicture(masterSuitePictureData),
+    placeholder: masterSuitePlaceholder,
+  },
+  {
+    alt: "Main bathroom with walk-in shower",
+    picture: toPicture(bathroomLuxuryPictureData),
+    placeholder: bathroomLuxuryPlaceholder,
+  },
+];
 
 const TELEGRAM_USERNAME = "realestate_MarbellaSpain";
 const WHATSAPP_NUMBER = "34624430070";
-const VIDEO_POSTER_NAME = "property-tour-poster.jpg";
+const PROPERTY_TOUR_VIDEO_SRC = `${import.meta.env.BASE_URL}media/property-tour-720p.mp4`;
+const VIDEO_POSTER_SRC = `${import.meta.env.BASE_URL}property-tour-poster.jpg`;
+const POLICY_URL = `${import.meta.env.BASE_URL}policy-processing-data.html`;
+
 type LanguageKey = "en" | "es" | "ru" | "uk";
 
 type LandingCopy = {
@@ -225,12 +293,54 @@ const Index: React.FC = () => {
   const [videoOpen, setVideoOpen] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
   const [videoError, setVideoError] = useState(false);
-  const [videoPoster, setVideoPoster] = useState<string | undefined>(undefined);
   const slideshowTimer = useRef<number | null>(null);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const currentContent = content[currentLang];
+
+  const heroSizes = "(min-width: 1280px) 960px, 100vw";
+  const gallerySizes = "(min-width: 1024px) 960px, 100vw";
+  const fullscreenSizes = "(min-width: 1024px) 70vw, 90vw";
+
+  const renderPicture = (
+    asset: PictureData,
+    alt: string,
+    sizes: string,
+    className: string,
+    options: { loading?: "lazy" | "eager"; placeholder?: string } = {},
+  ) => {
+    const { loading = "lazy", placeholder } = options;
+
+    return (
+      <picture>
+        {asset.sources.map((source) => (
+          <source key={`${source.type}-${source.srcset}`} type={source.type} srcSet={source.srcset} sizes={sizes} />
+        ))}
+        <img
+          src={asset.img.src}
+          width={asset.img.width}
+          height={asset.img.height}
+          alt={alt}
+          className={className}
+          loading={loading}
+          decoding="async"
+          sizes={sizes}
+          style={
+            placeholder
+              ? {
+                  backgroundImage: `url(${placeholder})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }
+              : undefined
+          }
+        />
+      </picture>
+    );
+  };
+
+  const currentGalleryImage = galleryImages[currentImageIndex];
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -291,11 +401,11 @@ const Index: React.FC = () => {
   );
 
   const goToNextImage = useCallback(() => {
-    setCurrentImageIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
+    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
   }, []);
 
   const goToPrevImage = useCallback(() => {
-    setCurrentImageIndex((prev) => (prev - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
+    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
   }, []);
 
   const handleTouchStart = useCallback((event: React.TouchEvent) => {
@@ -342,12 +452,12 @@ const Index: React.FC = () => {
   }, [galleryOpen, goToNextImage, goToPrevImage]);
 
   useEffect(() => {
-    if (galleryOpen || GALLERY_IMAGES.length < 2) {
+    if (galleryOpen || galleryImages.length < 2) {
       return undefined;
     }
 
     slideshowTimer.current = window.setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % GALLERY_IMAGES.length);
+      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
     }, 5000);
 
     return () => {
@@ -371,66 +481,6 @@ const Index: React.FC = () => {
       videoRef.current.currentTime = 0;
     }
   }, [videoOpen]);
-
-  useEffect(() => {
-    let cancelled = false;
-    const posterPath = `${import.meta.env.BASE_URL}${VIDEO_POSTER_NAME}`;
-
-    const setPoster = (value: string) => {
-      if (!cancelled) {
-        setVideoPoster(value);
-      }
-    };
-
-    const extractFrame = () => {
-      const tempVideo = document.createElement("video");
-      tempVideo.muted = true;
-      tempVideo.playsInline = true;
-      tempVideo.preload = "auto";
-      tempVideo.crossOrigin = "anonymous";
-      tempVideo.src = propertyTourVideo;
-
-      const handleLoadedData = () => {
-        const canvas = document.createElement("canvas");
-        const width = tempVideo.videoWidth || 1280;
-        const height = tempVideo.videoHeight || 720;
-        canvas.width = width;
-        canvas.height = height;
-        const context = canvas.getContext("2d");
-
-        if (context) {
-          context.drawImage(tempVideo, 0, 0, width, height);
-          setPoster(canvas.toDataURL("image/jpeg"));
-        }
-
-        tempVideo.removeEventListener("loadeddata", handleLoadedData);
-        tempVideo.src = "";
-      };
-
-      tempVideo.addEventListener("loadeddata", handleLoadedData);
-      tempVideo.load();
-    };
-
-    const tryLoadPoster = async () => {
-      try {
-        const response = await fetch(posterPath, { method: "HEAD" });
-        if (response.ok) {
-          setPoster(posterPath);
-          return;
-        }
-      } catch (error) {
-        // ignored — fallback below will generate poster on the client
-      }
-
-      extractFrame();
-    };
-
-    tryLoadPoster();
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   const onVideoError = useCallback(() => {
     setVideoError(true);
@@ -482,13 +532,13 @@ const Index: React.FC = () => {
 
         <div className="max-w-4xl mx-auto">
           <Card className="overflow-hidden shadow-[var(--shadow-strong)] rounded-2xl">
-            <img
-              src={heroImage}
-              alt="Luxury townhouse in Benahavís with panoramic views"
-              className="w-full h-[320px] sm:h-[380px] md:h-[520px] lg:h-[560px] object-cover"
-              loading="eager"
-              decoding="async"
-            />
+            {renderPicture(
+              heroPicture,
+              "Luxury townhouse in Benahavís with panoramic views",
+              heroSizes,
+              "w-full h-[320px] sm:h-[380px] md:h-[520px] lg:h-[560px] object-cover",
+              { loading: "eager", placeholder: heroPlaceholder },
+            )}
           </Card>
         </div>
       </section>
@@ -502,14 +552,20 @@ const Index: React.FC = () => {
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
-            <img
-              src={GALLERY_IMAGES[currentImageIndex].src}
-              alt={GALLERY_IMAGES[currentImageIndex].alt}
-              className="gallery-image w-full h-[260px] sm:h-[320px] md:h-[480px] lg:h-[520px] object-cover rounded-xl"
+            <button
+              type="button"
+              className="block w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2"
               onClick={() => setGalleryOpen(true)}
-              loading="lazy"
-              decoding="async"
-            />
+              aria-label="Открыть галерею"
+            >
+              {renderPicture(
+                currentGalleryImage.picture,
+                currentGalleryImage.alt,
+                gallerySizes,
+                "gallery-image w-full h-[260px] sm:h-[320px] md:h-[480px] lg:h-[520px] object-cover rounded-xl",
+                { placeholder: currentGalleryImage.placeholder },
+              )}
+            </button>
 
             <div className="pointer-events-none absolute inset-0 hidden md:flex items-center justify-between px-4">
               <button
@@ -535,9 +591,9 @@ const Index: React.FC = () => {
             </div>
 
             <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-              {GALLERY_IMAGES.map((_, index) => (
+              {galleryImages.map((image, index) => (
                 <button
-                  key={GALLERY_IMAGES[index].alt}
+                  key={image.alt}
                   type="button"
                   className={`pointer-events-auto h-2.5 rounded-full transition-all ${
                     currentImageIndex === index ? "bg-white w-6" : "bg-white/50 w-2.5"
@@ -579,16 +635,32 @@ const Index: React.FC = () => {
             <ChevronRight size={48} />
           </button>
 
-          <img
-            src={GALLERY_IMAGES[currentImageIndex].src}
-            alt={GALLERY_IMAGES[currentImageIndex].alt}
-            className="max-w-full max-h-full object-contain"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            {currentGalleryImage.picture.sources.map((source) => (
+              <source
+                key={`${source.type}-${source.srcset}`}
+                type={source.type}
+                srcSet={source.srcset}
+                sizes={fullscreenSizes}
+              />
+            ))}
+            <img
+              src={currentGalleryImage.picture.img.src}
+              alt={currentGalleryImage.alt}
+              className="max-w-full max-h-full object-contain"
+              loading="lazy"
+              decoding="async"
+              sizes={fullscreenSizes}
+              style={{
+                backgroundImage: `url(${currentGalleryImage.placeholder})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+          </picture>
 
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm">
-            {currentImageIndex + 1} / {GALLERY_IMAGES.length}
+            {currentImageIndex + 1} / {galleryImages.length}
           </div>
         </div>
       )}
@@ -604,8 +676,7 @@ const Index: React.FC = () => {
             <div
               className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 group-hover:opacity-90"
               style={{
-                backgroundImage: videoPoster ? `url(${videoPoster})` : undefined,
-                backgroundColor: videoPoster ? undefined : "var(--secondary)",
+                backgroundImage: `url(${VIDEO_POSTER_SRC})`,
               }}
             />
             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all duration-300" />
@@ -627,11 +698,11 @@ const Index: React.FC = () => {
               controls
               preload="auto"
               className="w-full h-auto rounded-lg bg-black"
-              poster={videoPoster}
+              poster={VIDEO_POSTER_SRC}
               onLoadedData={onVideoLoaded}
               onError={onVideoError}
             >
-              <source src={propertyTourVideo} type="video/mp4" />
+              <source src={PROPERTY_TOUR_VIDEO_SRC} type="video/mp4" />
             </video>
 
             {!videoReady && !videoError && (
@@ -703,7 +774,7 @@ const Index: React.FC = () => {
           <p className="mt-6 text-sm text-muted-foreground">
             {currentContent.consent.prefix}{" "}
             <a
-              href="/policy-processing-data"
+              href={POLICY_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-primary"

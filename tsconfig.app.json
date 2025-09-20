@@ -23,7 +23,8 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@media/*": ["./assets-source/*"]
     }
   },
   "include": ["src"]
