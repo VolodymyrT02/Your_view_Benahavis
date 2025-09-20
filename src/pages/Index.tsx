@@ -103,6 +103,7 @@ const WHATSAPP_NUMBER = "34624430070";
 const PROPERTY_TOUR_VIDEO_SRC = `${import.meta.env.BASE_URL}media/property-tour-720p.mp4`;
 const VIDEO_POSTER_SRC = `${import.meta.env.BASE_URL}property-tour-poster.jpg`;
 const POLICY_URL = `${import.meta.env.BASE_URL}policy-processing-data.html`;
+const LANGUAGE_STORAGE_KEY = "preferredLang.v2";
 
 type LanguageKey = "en" | "es" | "ru" | "uk";
 
@@ -280,7 +281,7 @@ const detectInitialLanguage = (): LanguageKey => {
     return "en";
   }
 
-  const stored = window.localStorage.getItem("preferredLang");
+  const stored = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
   if (stored === "en" || stored === "es" || stored === "ru" || stored === "uk") {
     return stored;
   }
@@ -357,9 +358,15 @@ const Index: React.FC = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.localStorage.setItem("preferredLang", currentLang);
+      window.localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLang);
     }
   }, [currentLang]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem("preferredLang");
+    }
+  }, []);
 
   const messageText = useMemo(() => messageTemplates[currentLang] ?? messageTemplates.en, [currentLang]);
   const encodedMessage = useMemo(() => encodeURIComponent(messageText), [messageText]);
