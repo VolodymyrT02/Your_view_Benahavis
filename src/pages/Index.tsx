@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { X, ChevronLeft, ChevronRight, Play, MessageCircle, Send, ChevronDown, Globe, RefreshCw } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Play, MessageCircle, ChevronDown, Globe, RefreshCw } from "lucide-react";
 
 import heroImage from "@/assets/hero-image.jpg";
 import livingSpace from "@/assets/IMG_1404.jpg";
@@ -56,6 +56,10 @@ type LandingCopy = {
     whatsapp: string;
     telegram: string;
   };
+  consent: {
+    prefix: string;
+    link: string;
+  };
 };
 
 const content: Record<LanguageKey, LandingCopy> = {
@@ -80,6 +84,10 @@ const content: Record<LanguageKey, LandingCopy> = {
       whatsapp: "Contact via WhatsApp",
       telegram: "Contact via Telegram",
     },
+    consent: {
+      prefix: "By clicking the button, you agree to the processing of your personal data.",
+      link: "Privacy Policy",
+    },
   },
   es: {
     hero: {
@@ -101,6 +109,10 @@ const content: Record<LanguageKey, LandingCopy> = {
       text: "Si siente que este es su lugar, conéctese con nosotros en su mensajero preferido. Le enviaremos más fotos, vídeos, planos y todos los detalles.",
       whatsapp: "Contactar por WhatsApp",
       telegram: "Contactar por Telegram",
+    },
+    consent: {
+      prefix: "Al hacer clic en el botón, acepta el tratamiento de sus datos personales.",
+      link: "Política de tratamiento de datos",
     },
   },
   ru: {
@@ -124,6 +136,10 @@ const content: Record<LanguageKey, LandingCopy> = {
       whatsapp: "Связаться через WhatsApp",
       telegram: "Связаться через Telegram",
     },
+    consent: {
+      prefix: "Нажимая кнопку, вы соглашаетесь на обработку персональных данных.",
+      link: "Политика обработки данных",
+    },
   },
   uk: {
     hero: {
@@ -145,6 +161,10 @@ const content: Record<LanguageKey, LandingCopy> = {
       text: "Якщо це місце відгукується у вас як «наш дім» — напишіть нам у зручний месенджер. Ми надішлемо більше фото, відео, плани та всі деталі.",
       whatsapp: "Зв'язатися через WhatsApp",
       telegram: "Зв'язатися через Telegram",
+    },
+    consent: {
+      prefix: "Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних.",
+      link: "Політика обробки даних",
     },
   },
 };
@@ -678,18 +698,20 @@ const Index: React.FC = () => {
               <MessageCircle size={20} />
               {currentContent.final.whatsapp}
             </a>
+          </div>
 
+          <p className="mt-6 text-sm text-muted-foreground">
+            {currentContent.consent.prefix}{" "}
             <a
-              href={telegramWebUrl}
+              href="/policy-processing-data"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={handleTelegramClick}
-              className="btn-telegram flex items-center gap-2 min-w-[200px] justify-center"
+              className="underline hover:text-primary"
             >
-              <Send size={20} />
-              {currentContent.final.telegram}
+              {currentContent.consent.link}
             </a>
-          </div>
+            .
+          </p>
         </div>
       </section>
     </div>
