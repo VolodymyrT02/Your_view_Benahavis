@@ -649,7 +649,7 @@ const Index: React.FC = () => {
           </button>
 
           <picture>
-            {currentGalleryImage.picture.sources.map((source) => (
+            {pictureSources(currentGalleryImage.picture.sources).map((source) => (
               <source
                 key={`${source.type}-${source.srcset}`}
                 type={source.type}
