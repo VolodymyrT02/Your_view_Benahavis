@@ -35,11 +35,13 @@ type PictureSource = {
 };
 
 type PictureData = {
-  sources: PictureSource[];
+  sources: PictureSource[] | Record<string, string>;
   img: {
     src: string;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
+    w?: number;
+    h?: number;
   };
 };
 
@@ -303,6 +305,17 @@ const Index: React.FC = () => {
   const gallerySizes = "(min-width: 1024px) 960px, 100vw";
   const fullscreenSizes = "(min-width: 1024px) 70vw, 90vw";
 
+  const pictureSources = (value: PictureData["sources"]): PictureSource[] => {
+    if (Array.isArray(value)) {
+      return value;
+    }
+
+    return Object.entries(value).map(([key, srcset]) => {
+      const type = key.includes("/") ? key : `image/${key === "jpg" ? "jpeg" : key}`;
+      return { type, srcset };
+    });
+  };
+
   const renderPicture = (
     asset: PictureData,
     alt: string,
@@ -314,13 +327,13 @@ const Index: React.FC = () => {
 
     return (
       <picture>
-        {asset.sources.map((source) => (
+        {pictureSources(asset.sources).map((source) => (
           <source key={`${source.type}-${source.srcset}`} type={source.type} srcSet={source.srcset} sizes={sizes} />
         ))}
         <img
           src={asset.img.src}
-          width={asset.img.width}
-          height={asset.img.height}
+          width={asset.img.width ?? asset.img.w}
+          height={asset.img.height ?? asset.img.h}
           alt={alt}
           className={className}
           loading={loading}
