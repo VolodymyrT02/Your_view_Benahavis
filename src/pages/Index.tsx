@@ -9,25 +9,25 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { X, ChevronLeft, ChevronRight, Play, MessageCircle, ChevronDown, Globe, RefreshCw } from "lucide-react";
 
-import heroPictureData from "@media/photos/hero-image.jpg?imagetools&w=2400;1800;1400;1000;720&format=webp;jpg&quality=82&as=picture";
-import heroPlaceholder from "@media/photos/hero-image.jpg?imagetools&w=40&format=webp&quality=30&blur=15&as=src";
+import heroPictureData from "@media/photos/hero-image.jpg?w=2400;1800;1400;1000;720&format=webp;jpg&quality=82&as=picture";
+import heroPlaceholder from "@media/photos/hero-image.jpg?w=40&format=webp&quality=30&blur=15&as=src";
 
-import livingSpacePictureData from "@media/photos/IMG_1404.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
-import livingSpacePlaceholder from "@media/photos/IMG_1404.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
-import terraceViewPictureData from "@media/photos/IMG_1459.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
-import terraceViewPlaceholder from "@media/photos/IMG_1459.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
-import kitchenModernPictureData from "@media/photos/IMG_1461.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
-import kitchenModernPlaceholder from "@media/photos/IMG_1461.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
-import loungeViewPictureData from "@media/photos/IMG_1462.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
-import loungeViewPlaceholder from "@media/photos/IMG_1462.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
-import readingCornerPictureData from "@media/photos/IMG_1464.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
-import readingCornerPlaceholder from "@media/photos/IMG_1464.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
-import guestRoomPictureData from "@media/photos/IMG_1465.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
-import guestRoomPlaceholder from "@media/photos/IMG_1465.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
-import masterSuitePictureData from "@media/photos/IMG_1468.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
-import masterSuitePlaceholder from "@media/photos/IMG_1468.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
-import bathroomLuxuryPictureData from "@media/photos/IMG_1469.jpg?imagetools&w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
-import bathroomLuxuryPlaceholder from "@media/photos/IMG_1469.jpg?imagetools&w=36&format=webp&quality=28&blur=12&as=src";
+import livingSpacePictureData from "@media/photos/IMG_1404.jpg?w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import livingSpacePlaceholder from "@media/photos/IMG_1404.jpg?w=36&format=webp&quality=28&blur=12&as=src";
+import terraceViewPictureData from "@media/photos/IMG_1459.jpg?w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import terraceViewPlaceholder from "@media/photos/IMG_1459.jpg?w=36&format=webp&quality=28&blur=12&as=src";
+import kitchenModernPictureData from "@media/photos/IMG_1461.jpg?w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import kitchenModernPlaceholder from "@media/photos/IMG_1461.jpg?w=36&format=webp&quality=28&blur=12&as=src";
+import loungeViewPictureData from "@media/photos/IMG_1462.jpg?w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import loungeViewPlaceholder from "@media/photos/IMG_1462.jpg?w=36&format=webp&quality=28&blur=12&as=src";
+import readingCornerPictureData from "@media/photos/IMG_1464.jpg?w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import readingCornerPlaceholder from "@media/photos/IMG_1464.jpg?w=36&format=webp&quality=28&blur=12&as=src";
+import guestRoomPictureData from "@media/photos/IMG_1465.jpg?w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import guestRoomPlaceholder from "@media/photos/IMG_1465.jpg?w=36&format=webp&quality=28&blur=12&as=src";
+import masterSuitePictureData from "@media/photos/IMG_1468.jpg?w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import masterSuitePlaceholder from "@media/photos/IMG_1468.jpg?w=36&format=webp&quality=28&blur=12&as=src";
+import bathroomLuxuryPictureData from "@media/photos/IMG_1469.jpg?w=2000;1500;1200;900;640;420&format=webp;jpg&quality=80&as=picture";
+import bathroomLuxuryPlaceholder from "@media/photos/IMG_1469.jpg?w=36&format=webp&quality=28&blur=12&as=src";
 
 type PictureSource = {
   type: string;
