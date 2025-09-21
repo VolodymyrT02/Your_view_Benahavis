@@ -1,5 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { getConsentCopy } from "@/lib/cookie-consent-content";
+import { dispatchOpenPreferences } from "@/lib/cookie-consent-storage";
+import { CookieConsentBanner } from "@/components/cookie-consent/cookie-consent-banner";
 import { Card } from "@/components/ui/card";
 import {
   DropdownMenu,
@@ -301,6 +304,7 @@ const Index: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const currentContent = content[currentLang];
+  const consentCopy = useMemo(() => getConsentCopy(currentLang), [currentLang]);
 
   const heroSizes = "(min-width: 1280px) 960px, 100vw";
   const gallerySizes = "(min-width: 1024px) 960px, 100vw";
@@ -355,6 +359,10 @@ const Index: React.FC = () => {
   };
 
   const currentGalleryImage = galleryImages[currentImageIndex];
+
+  const openCookiePreferences = useCallback(() => {
+    dispatchOpenPreferences("secondLayer");
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -803,8 +811,21 @@ const Index: React.FC = () => {
             </a>
             .
           </p>
+          <button
+            type="button"
+            className="mt-4 text-sm text-muted-foreground underline underline-offset-4 hover:text-primary"
+            onClick={openCookiePreferences}
+          >
+            {consentCopy.footerLink}
+          </button>
         </div>
       </section>
+
+      <CookieConsentBanner
+        locale={currentLang}
+        privacyPolicyUrl={POLICY_URL}
+        cookiesNoticeUrl={POLICY_URL}
+      />
     </div>
   );
 };
