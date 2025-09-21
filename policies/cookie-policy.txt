@@ -1,0 +1,430 @@
+COOKIE NOTICE AVAILABLE IN 6 LANGUAGES
+УВЕДОМЛЕНИЕ О ФАЙЛАХ COOKIE ДОСТУПНО НА 6 ЯЗЫКАХ
+
+Este documento está disponible en: Español | English | Deutsch | Français | Українська | Русский
+
+================================================================================
+ESPAÑOL — POLÍTICA DE COOKIES
+================================================================================
+
+Última actualización: 20/09/2025
+
+1. ¿QUÉ SON LAS COOKIES?
+
+Las cookies son pequeños archivos de texto que los sitios web colocan en su dispositivo cuando los visita. Se utilizan ampliamente para hacer que los sitios web funcionen de manera más eficiente y proporcionar información a los propietarios del sitio.
+
+2. TIPOS DE COOKIES QUE UTILIZAMOS
+
+COOKIES ESTRICTAMENTE NECESARIAS (Siempre activas)
+Estas cookies son esenciales para que pueda navegar por el sitio web y utilizar sus funciones. Sin estas cookies, los servicios básicos no pueden funcionar.
+- Cookies de sesión: Se eliminan cuando cierra el navegador
+- Cookies de preferencias: Recuerdan su idioma y región
+- Duración: Sesión o hasta 12 meses
+
+COOKIES ANALÍTICAS (Requieren consentimiento)
+Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web recopilando información de forma anónima.
+- Google Analytics (_ga, _gid, _gat): Análisis del tráfico del sitio
+- Duración: Hasta 2 años
+- Finalidad: Mejorar el rendimiento del sitio y la experiencia del usuario
+
+COOKIES DE MARKETING (Requieren consentimiento)
+Se utilizan para rastrear visitantes en los sitios web con el fin de mostrar anuncios relevantes y atractivos.
+- Google Ads: Para remarketing y conversiones
+- Meta Pixel: Para campañas de Facebook/Instagram
+- Duración: Hasta 1 año
+- Finalidad: Publicidad personalizada y medición de campañas
+
+3. BASE LEGAL
+
+Utilizamos cookies basándonos en:
+- Su consentimiento explícito (Art. 6.1.a RGPD) para cookies analíticas y de marketing
+- Nuestro interés legítimo (Art. 6.1.f RGPD) para cookies estrictamente necesarias
+- Cumplimiento con la Directiva ePrivacy 2002/58/CE
+
+4. GOOGLE CONSENT MODE V2
+
+Implementamos Google Consent Mode v2, que ajusta el comportamiento de las etiquetas de Google según sus preferencias de consentimiento:
+- analytics_storage: Controla el almacenamiento de datos analíticos
+- ad_storage: Controla el almacenamiento de datos publicitarios
+- ad_user_data: Gestiona el uso de datos de usuario para publicidad
+- ad_personalization: Controla la personalización de anuncios
+
+5. TERCEROS
+
+Algunos de nuestros proveedores externos establecen cookies:
+- Google LLC (Analytics, Ads) - Estados Unidos
+- Meta Platforms (Facebook Pixel) - Estados Unidos
+
+Estos terceros tienen sus propias políticas de privacidad y utilizan los datos según sus términos.
+
+6. GESTIÓN DE COOKIES
+
+Puede gestionar sus preferencias de cookies:
+- A través de nuestro banner de consentimiento en cualquier momento
+- Mediante la configuración de su navegador
+- Utilizando herramientas como www.allaboutcookies.org
+
+Tenga en cuenta que bloquear algunas cookies puede afectar la funcionalidad del sitio web.
+
+7. ACTUALIZACIONES
+
+Esta política puede actualizarse ocasionalmente. La fecha de última actualización se muestra al principio del documento.
+
+8. CONTACTO
+
+Para preguntas sobre nuestra política de cookies, utilice los datos de contacto disponibles en el sitio web.
+
+================================================================================
+ENGLISH — COOKIE POLICY
+================================================================================
+
+Last updated: 20/09/2025
+
+1. WHAT ARE COOKIES?
+
+Cookies are small text files that websites place on your device when you visit them. They are widely used to make websites work more efficiently and provide information to site owners.
+
+2. TYPES OF COOKIES WE USE
+
+STRICTLY NECESSARY COOKIES (Always active)
+These cookies are essential for you to browse the website and use its features. Without these cookies, basic services cannot function.
+- Session cookies: Deleted when you close your browser
+- Preference cookies: Remember your language and region
+- Duration: Session or up to 12 months
+
+ANALYTICS COOKIES (Require consent)
+Help us understand how visitors interact with our website by collecting information anonymously.
+- Google Analytics (_ga, _gid, _gat): Site traffic analysis
+- Duration: Up to 2 years
+- Purpose: Improve site performance and user experience
+
+MARKETING COOKIES (Require consent)
+Used to track visitors across websites in order to display relevant and engaging advertisements.
+- Google Ads: For remarketing and conversions
+- Meta Pixel: For Facebook/Instagram campaigns
+- Duration: Up to 1 year
+- Purpose: Personalized advertising and campaign measurement
+
+3. LEGAL BASIS
+
+We use cookies based on:
+- Your explicit consent (Art. 6.1.a GDPR) for analytics and marketing cookies
+- Our legitimate interest (Art. 6.1.f GDPR) for strictly necessary cookies
+- Compliance with ePrivacy Directive 2002/58/EC
+
+4. GOOGLE CONSENT MODE V2
+
+We implement Google Consent Mode v2, which adjusts the behavior of Google tags based on your consent preferences:
+- analytics_storage: Controls analytics data storage
+- ad_storage: Controls advertising data storage
+- ad_user_data: Manages user data usage for advertising
+- ad_personalization: Controls ad personalization
+
+5. THIRD PARTIES
+
+Some of our third-party providers set cookies:
+- Google LLC (Analytics, Ads) - United States
+- Meta Platforms (Facebook Pixel) - United States
+
+These third parties have their own privacy policies and use data according to their terms.
+
+6. MANAGING COOKIES
+
+You can manage your cookie preferences:
+- Through our consent banner at any time
+- Via your browser settings
+- Using tools like www.allaboutcookies.org
+
+Please note that blocking some cookies may affect website functionality.
+
+7. UPDATES
+
+This policy may be updated occasionally. The last update date is shown at the top of the document.
+
+8. CONTACT
+
+For questions about our cookie policy, use the contact details available on the website.
+
+================================================================================
+DEUTSCH — COOKIE-RICHTLINIE
+================================================================================
+
+Letzte Aktualisierung: 20.09.2025
+
+1. WAS SIND COOKIES?
+
+Cookies sind kleine Textdateien, die Websites auf Ihrem Gerät platzieren, wenn Sie sie besuchen. Sie werden weithin verwendet, um Websites effizienter zu machen und Informationen an die Websitebesitzer zu liefern.
+
+2. ARTEN VON COOKIES, DIE WIR VERWENDEN
+
+UNBEDINGT ERFORDERLICHE COOKIES (Immer aktiv)
+Diese Cookies sind unerlässlich, damit Sie die Website durchsuchen und ihre Funktionen nutzen können. Ohne diese Cookies können grundlegende Dienste nicht funktionieren.
+- Sitzungscookies: Werden gelöscht, wenn Sie Ihren Browser schließen
+- Präferenzcookies: Speichern Ihre Sprache und Region
+- Dauer: Sitzung oder bis zu 12 Monate
+
+ANALYSE-COOKIES (Erfordern Zustimmung)
+Helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie Informationen anonym sammeln.
+- Google Analytics (_ga, _gid, _gat): Website-Traffic-Analyse
+- Dauer: Bis zu 2 Jahre
+- Zweck: Verbesserung der Website-Leistung und Benutzererfahrung
+
+MARKETING-COOKIES (Erfordern Zustimmung)
+Werden verwendet, um Besucher über Websites hinweg zu verfolgen, um relevante und ansprechende Werbung anzuzeigen.
+- Google Ads: Für Remarketing und Conversions
+- Meta Pixel: Für Facebook/Instagram-Kampagnen
+- Dauer: Bis zu 1 Jahr
+- Zweck: Personalisierte Werbung und Kampagnenmessung
+
+3. RECHTSGRUNDLAGE
+
+Wir verwenden Cookies basierend auf:
+- Ihrer ausdrücklichen Einwilligung (Art. 6.1.a DSGVO) für Analyse- und Marketing-Cookies
+- Unserem berechtigten Interesse (Art. 6.1.f DSGVO) für unbedingt erforderliche Cookies
+- Einhaltung der ePrivacy-Richtlinie 2002/58/EG
+
+4. GOOGLE CONSENT MODE V2
+
+Wir implementieren Google Consent Mode v2, der das Verhalten von Google-Tags basierend auf Ihren Einwilligungspräferenzen anpasst:
+- analytics_storage: Steuert die Speicherung von Analysedaten
+- ad_storage: Steuert die Speicherung von Werbedaten
+- ad_user_data: Verwaltet die Nutzung von Nutzerdaten für Werbung
+- ad_personalization: Steuert die Anzeigenpersonalisierung
+
+5. DRITTANBIETER
+
+Einige unserer Drittanbieter setzen Cookies:
+- Google LLC (Analytics, Ads) - Vereinigte Staaten
+- Meta Platforms (Facebook Pixel) - Vereinigte Staaten
+
+Diese Drittanbieter haben ihre eigenen Datenschutzrichtlinien und verwenden Daten gemäß ihren Bedingungen.
+
+6. COOKIE-VERWALTUNG
+
+Sie können Ihre Cookie-Präferenzen verwalten:
+- Über unser Einwilligungsbanner jederzeit
+- Über Ihre Browsereinstellungen
+- Mit Tools wie www.allaboutcookies.org
+
+Bitte beachten Sie, dass das Blockieren einiger Cookies die Website-Funktionalität beeinträchtigen kann.
+
+7. AKTUALISIERUNGEN
+
+Diese Richtlinie kann gelegentlich aktualisiert werden. Das Datum der letzten Aktualisierung wird oben im Dokument angezeigt.
+
+8. KONTAKT
+
+Bei Fragen zu unserer Cookie-Richtlinie verwenden Sie die auf der Website verfügbaren Kontaktdaten.
+
+================================================================================
+FRANÇAIS — POLITIQUE DE COOKIES
+================================================================================
+
+Dernière mise à jour : 20/09/2025
+
+1. QUE SONT LES COOKIES ?
+
+Les cookies sont de petits fichiers texte que les sites web placent sur votre appareil lorsque vous les visitez. Ils sont largement utilisés pour faire fonctionner les sites web plus efficacement et fournir des informations aux propriétaires du site.
+
+2. TYPES DE COOKIES QUE NOUS UTILISONS
+
+COOKIES STRICTEMENT NÉCESSAIRES (Toujours actifs)
+Ces cookies sont essentiels pour vous permettre de naviguer sur le site web et d'utiliser ses fonctionnalités. Sans ces cookies, les services de base ne peuvent pas fonctionner.
+- Cookies de session : Supprimés lorsque vous fermez votre navigateur
+- Cookies de préférences : Mémorisent votre langue et région
+- Durée : Session ou jusqu'à 12 mois
+
+COOKIES ANALYTIQUES (Nécessitent consentement)
+Nous aident à comprendre comment les visiteurs interagissent avec notre site web en collectant des informations de manière anonyme.
+- Google Analytics (_ga, _gid, _gat) : Analyse du trafic du site
+- Durée : Jusqu'à 2 ans
+- Objectif : Améliorer les performances du site et l'expérience utilisateur
+
+COOKIES MARKETING (Nécessitent consentement)
+Utilisés pour suivre les visiteurs sur les sites web afin d'afficher des publicités pertinentes et engageantes.
+- Google Ads : Pour le remarketing et les conversions
+- Meta Pixel : Pour les campagnes Facebook/Instagram
+- Durée : Jusqu'à 1 an
+- Objectif : Publicité personnalisée et mesure de campagne
+
+3. BASE LÉGALE
+
+Nous utilisons des cookies sur la base de :
+- Votre consentement explicite (Art. 6.1.a RGPD) pour les cookies analytiques et marketing
+- Notre intérêt légitime (Art. 6.1.f RGPD) pour les cookies strictement nécessaires
+- Conformité avec la Directive ePrivacy 2002/58/CE
+
+4. GOOGLE CONSENT MODE V2
+
+Nous implémentons Google Consent Mode v2, qui ajuste le comportement des balises Google en fonction de vos préférences de consentement :
+- analytics_storage : Contrôle le stockage des données analytiques
+- ad_storage : Contrôle le stockage des données publicitaires
+- ad_user_data : Gère l'utilisation des données utilisateur pour la publicité
+- ad_personalization : Contrôle la personnalisation des annonces
+
+5. TIERS
+
+Certains de nos fournisseurs tiers déposent des cookies :
+- Google LLC (Analytics, Ads) - États-Unis
+- Meta Platforms (Facebook Pixel) - États-Unis
+
+Ces tiers ont leurs propres politiques de confidentialité et utilisent les données selon leurs conditions.
+
+6. GESTION DES COOKIES
+
+Vous pouvez gérer vos préférences de cookies :
+- Via notre bannière de consentement à tout moment
+- Via les paramètres de votre navigateur
+- En utilisant des outils comme www.allaboutcookies.org
+
+Veuillez noter que le blocage de certains cookies peut affecter la fonctionnalité du site web.
+
+7. MISES À JOUR
+
+Cette politique peut être mise à jour occasionnellement. La date de dernière mise à jour est indiquée en haut du document.
+
+8. CONTACT
+
+Pour des questions sur notre politique de cookies, utilisez les coordonnées disponibles sur le site web.
+
+================================================================================
+УКРАЇНСЬКА — ПОЛІТИКА ЩОДО ФАЙЛІВ COOKIE
+================================================================================
+
+Останнє оновлення: 20.09.2025
+
+1. ЩО ТАКЕ ФАЙЛИ COOKIE?
+
+Файли cookie - це невеликі текстові файли, які веб-сайти розміщують на вашому пристрої, коли ви їх відвідуєте. Вони широко використовуються для більш ефективної роботи веб-сайтів та надання інформації власникам сайту.
+
+2. ТИПИ ФАЙЛІВ COOKIE, ЯКІ МИ ВИКОРИСТОВУЄМО
+
+СТРОГО НЕОБХІДНІ ФАЙЛИ COOKIE (Завжди активні)
+Ці файли cookie необхідні для перегляду веб-сайту та використання його функцій. Без цих файлів cookie базові послуги не можуть функціонувати.
+- Сесійні файли cookie: Видаляються при закритті браузера
+- Файли cookie налаштувань: Запам'ятовують вашу мову та регіон
+- Тривалість: Сесія або до 12 місяців
+
+АНАЛІТИЧНІ ФАЙЛИ COOKIE (Потребують згоди)
+Допомагають нам зрозуміти, як відвідувачі взаємодіють з нашим веб-сайтом, збираючи інформацію анонімно.
+- Google Analytics (_ga, _gid, _gat): Аналіз трафіку сайту
+- Тривалість: До 2 років
+- Мета: Покращення продуктивності сайту та досвіду користувачів
+
+МАРКЕТИНГОВІ ФАЙЛИ COOKIE (Потребують згоди)
+Використовуються для відстеження відвідувачів на веб-сайтах з метою відображення релевантної та привабливої реклами.
+- Google Ads: Для ремаркетингу та конверсій
+- Meta Pixel: Для кампаній Facebook/Instagram
+- Тривалість: До 1 року
+- Мета: Персоналізована реклама та вимірювання кампаній
+
+3. ПРАВОВА ОСНОВА
+
+Ми використовуємо файли cookie на основі:
+- Вашої явної згоди (ст. 6.1.a GDPR) для аналітичних та маркетингових файлів cookie
+- Нашого законного інтересу (ст. 6.1.f GDPR) для строго необхідних файлів cookie
+- Відповідності Директиві ePrivacy 2002/58/EC
+
+4. GOOGLE CONSENT MODE V2
+
+Ми впроваджуємо Google Consent Mode v2, який налаштовує поведінку тегів Google відповідно до ваших налаштувань згоди:
+- analytics_storage: Контролює зберігання аналітичних даних
+- ad_storage: Контролює зберігання рекламних даних
+- ad_user_data: Керує використанням даних користувача для реклами
+- ad_personalization: Контролює персоналізацію реклами
+
+5. ТРЕТІ СТОРОНИ
+
+Деякі наші сторонні постачальники встановлюють файли cookie:
+- Google LLC (Analytics, Ads) - Сполучені Штати
+- Meta Platforms (Facebook Pixel) - Сполучені Штати
+
+Ці треті сторони мають власні політики конфіденційності та використовують дані відповідно до своїх умов.
+
+6. УПРАВЛІННЯ ФАЙЛАМИ COOKIE
+
+Ви можете керувати своїми налаштуваннями файлів cookie:
+- Через наш банер згоди в будь-який час
+- Через налаштування вашого браузера
+- Використовуючи інструменти, такі як www.allaboutcookies.org
+
+Зверніть увагу, що блокування деяких файлів cookie може вплинути на функціональність веб-сайту.
+
+7. ОНОВЛЕННЯ
+
+Ця політика може періодично оновлюватися. Дата останнього оновлення вказана вгорі документа.
+
+8. КОНТАКТ
+
+З питань щодо нашої політики файлів cookie використовуйте контактні дані, доступні на веб-сайті.
+
+================================================================================
+РУССКИЙ — ПОЛИТИКА В ОТНОШЕНИИ ФАЙЛОВ COOKIE
+================================================================================
+
+Последнее обновление: 20.09.2025
+
+1. ЧТО ТАКОЕ ФАЙЛЫ COOKIE?
+
+Файлы cookie - это небольшие текстовые файлы, которые веб-сайты размещают на вашем устройстве при их посещении. Они широко используются для более эффективной работы веб-сайтов и предоставления информации владельцам сайта.
+
+2. ТИПЫ ФАЙЛОВ COOKIE, КОТОРЫЕ МЫ ИСПОЛЬЗУЕМ
+
+СТРОГО НЕОБХОДИМЫЕ ФАЙЛЫ COOKIE (Всегда активны)
+Эти файлы cookie необходимы для просмотра веб-сайта и использования его функций. Без этих файлов cookie базовые услуги не могут функционировать.
+- Сессионные файлы cookie: Удаляются при закрытии браузера
+- Файлы cookie предпочтений: Запоминают ваш язык и регион
+- Продолжительность: Сессия или до 12 месяцев
+
+АНАЛИТИЧЕСКИЕ ФАЙЛЫ COOKIE (Требуют согласия)
+Помогают нам понять, как посетители взаимодействуют с нашим веб-сайтом, собирая информацию анонимно.
+- Google Analytics (_ga, _gid, _gat): Анализ трафика сайта
+- Продолжительность: До 2 лет
+- Цель: Улучшение производительности сайта и пользовательского опыта
+
+МАРКЕТИНГОВЫЕ ФАЙЛЫ COOKIE (Требуют согласия)
+Используются для отслеживания посетителей на веб-сайтах с целью отображения релевантной и привлекательной рекламы.
+- Google Ads: Для ремаркетинга и конверсий
+- Meta Pixel: Для кампаний Facebook/Instagram
+- Продолжительность: До 1 года
+- Цель: Персонализированная реклама и измерение кампаний
+
+3. ПРАВОВАЯ ОСНОВА
+
+Мы используем файлы cookie на основании:
+- Вашего явного согласия (ст. 6.1.a GDPR) для аналитических и маркетинговых файлов cookie
+- Нашего законного интереса (ст. 6.1.f GDPR) для строго необходимых файлов cookie
+- Соответствия Директиве ePrivacy 2002/58/EC
+
+4. GOOGLE CONSENT MODE V2
+
+Мы внедряем Google Consent Mode v2, который настраивает поведение тегов Google в соответствии с вашими предпочтениями согласия:
+- analytics_storage: Контролирует хранение аналитических данных
+- ad_storage: Контролирует хранение рекламных данных
+- ad_user_data: Управляет использованием данных пользователя для рекламы
+- ad_personalization: Контролирует персонализацию рекламы
+
+5. ТРЕТЬИ СТОРОНЫ
+
+Некоторые наши сторонние поставщики устанавливают файлы cookie:
+- Google LLC (Analytics, Ads) - Соединенные Штаты
+- Meta Platforms (Facebook Pixel) - Соединенные Штаты
+
+Эти третьи стороны имеют собственные политики конфиденциальности и используют данные в соответствии со своими условиями.
+
+6. УПРАВЛЕНИЕ ФАЙЛАМИ COOKIE
+
+Вы можете управлять своими предпочтениями файлов cookie:
+- Через наш баннер согласия в любое время
+- Через настройки вашего браузера
+- Используя инструменты, такие как www.allaboutcookies.org
+
+Обратите внимание, что блокировка некоторых файлов cookie может повлиять на функциональность веб-сайта.
+
+7. ОБНОВЛЕНИЯ
+
+Эта политика может периодически обновляться. Дата последнего обновления указана в верхней части документа.
+
+8. КОНТАКТ
+
+По вопросам о нашей политике в отношении файлов cookie используйте контактные данные, доступные на веб-сайте.

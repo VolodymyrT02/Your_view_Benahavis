@@ -105,7 +105,8 @@ const TELEGRAM_USERNAME = "realestate_MarbellaSpain";
 const WHATSAPP_NUMBER = "34624430070";
 const PROPERTY_TOUR_VIDEO_SRC = `${import.meta.env.BASE_URL}media/property-tour-720p.mp4`;
 const VIDEO_POSTER_SRC = `${import.meta.env.BASE_URL}property-tour-poster.jpg`;
-const POLICY_URL = `${import.meta.env.BASE_URL}policy-processing-data.html`;
+const PRIVACY_POLICY_URL = `${import.meta.env.BASE_URL}policies/privacy-policy.html`;
+const COOKIES_POLICY_URL = `${import.meta.env.BASE_URL}policies/cookie-policy.html`;
 const LANGUAGE_STORAGE_KEY = "preferredLang.v2";
 
 type LanguageKey = "en" | "es" | "ru" | "uk";
@@ -133,6 +134,7 @@ type LandingCopy = {
   consent: {
     prefix: string;
     link: string;
+    suffix: string;
   };
 };
 
@@ -159,8 +161,9 @@ const content: Record<LanguageKey, LandingCopy> = {
       telegram: "Contact via Telegram",
     },
     consent: {
-      prefix: "By clicking the button, you agree to the processing of your personal data.",
+      prefix: "By clicking the button, you agree to be contacted on WhatsApp regarding your request and accept the",
       link: "Privacy Policy",
+      suffix: '. To unsubscribe, send “Unsubscribe”.',
     },
   },
   es: {
@@ -185,8 +188,9 @@ const content: Record<LanguageKey, LandingCopy> = {
       telegram: "Contactar por Telegram",
     },
     consent: {
-      prefix: "Al hacer clic en el botón, acepta el tratamiento de sus datos personales.",
-      link: "Política de tratamiento de datos",
+      prefix: "Al hacer clic en el botón, aceptas que nos pongamos en contacto contigo por WhatsApp según tu solicitud y aceptas la",
+      link: "Política de privacidad",
+      suffix: '. Para darte de baja, envía “Baja”.',
     },
   },
   ru: {
@@ -211,8 +215,9 @@ const content: Record<LanguageKey, LandingCopy> = {
       telegram: "Связаться через Telegram",
     },
     consent: {
-      prefix: "Нажимая кнопку, вы соглашаетесь на обработку персональных данных.",
-      link: "Политика обработки данных",
+      prefix: "Нажимая кнопку, вы соглашаетесь на контакт в WhatsApp по вашему запросу и принимаете",
+      link: "Политику конфиденциальности",
+      suffix: '. Отписаться можно сообщением «Отписка».',
     },
   },
   uk: {
@@ -237,8 +242,9 @@ const content: Record<LanguageKey, LandingCopy> = {
       telegram: "Зв'язатися через Telegram",
     },
     consent: {
-      prefix: "Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних.",
-      link: "Політика обробки даних",
+      prefix: "Натискаючи кнопку, ви погоджуєтеся на контакт у WhatsApp за вашим запитом і приймаєте",
+      link: "Політику конфіденційності",
+      suffix: '. Відписатися можна повідомленням «Відписка».',
     },
   },
 };
@@ -802,14 +808,14 @@ const Index: React.FC = () => {
           <p className="mt-6 text-sm text-muted-foreground">
             {currentContent.consent.prefix}{" "}
             <a
-              href={POLICY_URL}
+              href={PRIVACY_POLICY_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-primary"
             >
               {currentContent.consent.link}
             </a>
-            .
+            {currentContent.consent.suffix}
           </p>
           <button
             type="button"
@@ -823,8 +829,8 @@ const Index: React.FC = () => {
 
       <CookieConsentBanner
         locale={currentLang}
-        privacyPolicyUrl={POLICY_URL}
-        cookiesNoticeUrl={POLICY_URL}
+        privacyPolicyUrl={PRIVACY_POLICY_URL}
+        cookiesNoticeUrl={COOKIES_POLICY_URL}
       />
     </div>
   );

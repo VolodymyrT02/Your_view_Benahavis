@@ -139,17 +139,29 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({
                 <p className="text-sm text-muted-foreground">{copy.firstLayer.message}</p>
               </div>
 
-              <div className="flex flex-wrap gap-2">
-                <Button size="sm" onClick={handleAcceptAll} disabled={isSaving}>
-                  {copy.firstLayer.buttons.acceptAll}
-                </Button>
-                <Button variant="outline" size="sm" onClick={handleRejectAll} disabled={isSaving}>
-                  {copy.firstLayer.buttons.rejectAll}
-                </Button>
-                <Button variant="ghost" size="sm" onClick={handleCustomize} disabled={isSaving}>
-                  {copy.firstLayer.buttons.customize}
-                </Button>
-              </div>
+      <div className="flex flex-col gap-2">
+        <Button size="sm" className="h-12 w-full justify-center" onClick={handleAcceptAll} disabled={isSaving}>
+          {copy.firstLayer.buttons.acceptAll}
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          className="h-12 w-full justify-center"
+          onClick={handleRejectAll}
+          disabled={isSaving}
+        >
+          {copy.firstLayer.buttons.rejectAll}
+        </Button>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-12 w-full justify-center"
+          onClick={handleCustomize}
+          disabled={isSaving}
+        >
+          {copy.firstLayer.buttons.customize}
+        </Button>
+      </div>
 
               <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                 <a
@@ -236,20 +248,38 @@ export const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2">
-                <Button size="sm" onClick={handleAcceptAll} disabled={isSaving}>
-                  {copy.secondLayer.buttons.acceptAll}
-                </Button>
-                <Button variant="outline" size="sm" onClick={handleRejectAll} disabled={isSaving}>
-                  {copy.secondLayer.buttons.rejectAll}
-                </Button>
-                <Button variant="ghost" size="sm" onClick={handleBack} disabled={isSaving}>
-                  {copy.secondLayer.buttons.back}
-                </Button>
-                <Button variant="default" size="sm" onClick={handleSave} disabled={isSaving}>
-                  {copy.secondLayer.buttons.save}
-                </Button>
-              </div>
+      <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+        <Button size="sm" className="h-10 flex-1 min-w-[180px] justify-center" onClick={handleAcceptAll} disabled={isSaving}>
+          {copy.secondLayer.buttons.acceptAll}
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          className="h-10 flex-1 min-w-[180px] justify-center"
+          onClick={handleRejectAll}
+          disabled={isSaving}
+        >
+          {copy.secondLayer.buttons.rejectAll}
+        </Button>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-10 flex-1 min-w-[180px] justify-center"
+          onClick={handleBack}
+          disabled={isSaving}
+        >
+          {copy.secondLayer.buttons.back}
+        </Button>
+        <Button
+          variant="default"
+          size="sm"
+          className="h-10 flex-1 min-w-[180px] justify-center"
+          onClick={handleSave}
+          disabled={isSaving}
+        >
+          {copy.secondLayer.buttons.save}
+        </Button>
+      </div>
 
               <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                 <a

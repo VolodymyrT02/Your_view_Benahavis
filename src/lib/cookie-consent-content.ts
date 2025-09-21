@@ -50,9 +50,9 @@ const CONSENT_LOCALES: Record<string, ConsentLocaleCopy> = {
       message:
         'We use essential cookies to run this site and, with your consent, analytics and advertising technologies. You can accept all, keep only necessary cookies, or customise your preferences. See the Cookies Notice for details. The English version prevails.',
       buttons: {
-        acceptAll: 'Accept all',
-        rejectAll: 'Only necessary',
-        customize: 'Customise',
+        acceptAll: 'Accept all cookie files',
+        rejectAll: 'Accept only necessary cookie files',
+        customize: 'Customise cookies',
       },
       links: {
         privacyPolicy: 'Privacy Policy',
@@ -99,9 +99,9 @@ const CONSENT_LOCALES: Record<string, ConsentLocaleCopy> = {
       message:
         'Utilizamos cookies esenciales para que el sitio funcione y, con tu consentimiento, tecnologías de analítica y publicidad. Puedes aceptar todo, mantener solo las necesarias o personalizar tus preferencias. Consulta el Aviso de cookies para más detalles. La versión en inglés prevalece.',
       buttons: {
-        acceptAll: 'Aceptar todo',
-        rejectAll: 'Solo necesarias',
-        customize: 'Personalizar',
+        acceptAll: 'Aceptar todos los archivos de cookies',
+        rejectAll: 'Aceptar solo los archivos de cookies necesarios',
+        customize: 'Configurar cookies',
       },
       links: {
         privacyPolicy: 'Política de privacidad',
@@ -148,9 +148,9 @@ const CONSENT_LOCALES: Record<string, ConsentLocaleCopy> = {
       message:
         'Мы используем обязательные cookies для работы сайта и, с вашего согласия, аналитику и рекламу. Вы можете принять всё, оставить только необходимые или настроить предпочтения. Подробнее — в уведомлении о cookies. Английская версия политики имеет приоритет.',
       buttons: {
-        acceptAll: 'Принять всё',
-        rejectAll: 'Только необходимые',
-        customize: 'Настроить',
+        acceptAll: 'принять все файлы куки',
+        rejectAll: 'принять только необходимые файлы куки',
+        customize: 'настроить куки',
       },
       links: {
         privacyPolicy: 'Политика конфиденциальности',
@@ -197,9 +197,9 @@ const CONSENT_LOCALES: Record<string, ConsentLocaleCopy> = {
       message:
         'Ми використовуємо обов’язкові cookies для роботи сайту та, за вашою згодою, аналітику й рекламу. Ви можете прийняти все, залишити лише необхідні або налаштувати вподобання. Деталі — в повідомленні про cookies. Пріоритет має англомовна версія політики.',
       buttons: {
-        acceptAll: 'Прийняти все',
-        rejectAll: 'Лише необхідні',
-        customize: 'Налаштувати',
+        acceptAll: 'Прийняти всі файли cookies',
+        rejectAll: 'Прийняти лише необхідні файли cookies',
+        customize: 'Налаштувати cookies',
       },
       links: {
         privacyPolicy: 'Політика конфіденційності',
