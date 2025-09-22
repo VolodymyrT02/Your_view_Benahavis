@@ -371,23 +371,6 @@ const Index: React.FC = () => {
     dispatchOpenPreferences("secondLayer");
   }, []);
 
-  const handleWhatsappClick = useCallback(() => {
-    void submitLeadIntent({
-      channel: "whatsapp",
-      locale: currentLang,
-      pageId: "cta_whatsapp",
-      messengerLink: whatsappLink,
-      extra: {
-        messageTemplate: messageTemplates[currentLang],
-      },
-    });
-
-    void submitRemarketingEvent("whatsapp_click", {
-      locale: currentLang,
-      pageId: "cta_whatsapp",
-    });
-  }, [currentLang, whatsappLink]);
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLang);
@@ -408,6 +391,23 @@ const Index: React.FC = () => {
     url.searchParams.set("text", messageText);
     return url.toString();
   }, [messageText]);
+
+  const handleWhatsappClick = useCallback(() => {
+    void submitLeadIntent({
+      channel: "whatsapp",
+      locale: currentLang,
+      pageId: "cta_whatsapp",
+      messengerLink: whatsappLink,
+      extra: {
+        messageTemplate: messageTemplates[currentLang],
+      },
+    });
+
+    void submitRemarketingEvent("whatsapp_click", {
+      locale: currentLang,
+      pageId: "cta_whatsapp",
+    });
+  }, [currentLang, whatsappLink]);
 
   const telegramDeepLink = useMemo(
     () => `tg://resolve?domain=${TELEGRAM_USERNAME}&text=${encodedMessage}`,
