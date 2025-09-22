@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { getConsentCopy } from "@/lib/cookie-consent-content";
 import { dispatchOpenPreferences } from "@/lib/cookie-consent-storage";
 import { CookieConsentBanner } from "@/components/cookie-consent/cookie-consent-banner";
+import { submitLeadIntent, submitRemarketingEvent } from "@/lib/lead-service";
 import { Card } from "@/components/ui/card";
 import {
   DropdownMenu,
@@ -370,6 +371,23 @@ const Index: React.FC = () => {
     dispatchOpenPreferences("secondLayer");
   }, []);
 
+  const handleWhatsappClick = useCallback(() => {
+    void submitLeadIntent({
+      channel: "whatsapp",
+      locale: currentLang,
+      pageId: "cta_whatsapp",
+      messengerLink: whatsappLink,
+      extra: {
+        messageTemplate: messageTemplates[currentLang],
+      },
+    });
+
+    void submitRemarketingEvent("whatsapp_click", {
+      locale: currentLang,
+      pageId: "cta_whatsapp",
+    });
+  }, [currentLang, whatsappLink]);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLang);
@@ -403,6 +421,18 @@ const Index: React.FC = () => {
 
   const handleTelegramClick = useCallback(
     (event: React.MouseEvent<HTMLAnchorElement>) => {
+      void submitLeadIntent({
+        channel: "telegram",
+        locale: currentLang,
+        pageId: "cta_telegram",
+        messengerLink: telegramWebUrl,
+      });
+
+      void submitRemarketingEvent("telegram_click", {
+        locale: currentLang,
+        pageId: "cta_telegram",
+      });
+
       const isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent);
       if (!isMobile) {
         return;
@@ -431,7 +461,7 @@ const Index: React.FC = () => {
         { once: true },
       );
     },
-    [telegramDeepLink, telegramWebUrl],
+    [currentLang, telegramDeepLink, telegramWebUrl],
   );
 
   const goToNextImage = useCallback(() => {
@@ -799,6 +829,7 @@ const Index: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="btn-whatsapp flex items-center gap-2 min-w-[200px] justify-center"
+              onClick={handleWhatsappClick}
             >
               <MessageCircle size={20} />
               {currentContent.final.whatsapp}
